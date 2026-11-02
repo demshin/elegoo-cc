@@ -13,6 +13,7 @@ permissions:
 env:
   SITE_URL: https://demshin.github.io
   SITE_BASE: /elegoo-cc
+  PUBLIC_GOOGLE_ANALYTICS_ID: G-XKK8ZMW7D2
 
 jobs:
   build:

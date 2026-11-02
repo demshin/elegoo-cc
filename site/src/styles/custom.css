@@ -1,0 +1,27 @@
+:root {
+  --sl-color-accent-low: #073b3c;
+  --sl-color-accent: #37bdb1;
+  --sl-color-accent-high: #a4eee5;
+  --sl-font: 'Segoe UI', 'Inter', system-ui, sans-serif;
+  --sl-content-width: 52rem;
+  --sl-nav-height: 3.25rem;
+  --sl-nav-pad-y: .5rem;
+}
+:root[data-theme='light'] {
+  --sl-color-accent-low: #d6f8f0;
+  --sl-color-accent: #006f68;
+  --sl-color-accent-high: #124d49;
+}
+html { scroll-padding-top: 5rem; }
+:root:not([data-has-sidebar]) { --sl-nav-height: 3.25rem; }
+[data-page-title] { font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -.025em; text-wrap: balance; }
+.content-panel { padding-block: 1rem; }
+.card { border-radius: 1rem; background: var(--sl-color-bg-nav); }
+.sl-markdown-content table { display: block; max-width: 100%; overflow-x: auto; }
+.sl-markdown-content :is(h2, h3) { letter-spacing: -.02em; }
+.sl-markdown-content p { text-wrap: pretty; }
+.sl-markdown-content .archive-ref { font-size: .85em; color: var(--sl-color-gray-3); }
+@media (prefers-reduced-motion: no-preference) {
+  .card { transition: border-color .15s ease; }
+  .card:hover { border-color: var(--sl-color-accent); }
+}

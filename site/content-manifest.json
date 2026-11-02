@@ -1,0 +1,420 @@
+{
+  "assets": ["favicon.svg"],
+  "groups": [
+    {
+      "id": "topic-1",
+      "label": "Материалы и подача"
+    },
+    {
+      "id": "topic-2",
+      "label": "Первый слой и удержание детали"
+    },
+    {
+      "id": "topic-3",
+      "label": "Слайсер, периметры и поддержки"
+    },
+    {
+      "id": "topic-4",
+      "label": "Экструзия и нагрев"
+    },
+    {
+      "id": "topic-5",
+      "label": "Механика, калибровка и обслуживание"
+    },
+    {
+      "id": "topic-6",
+      "label": "Связь и интерфейс"
+    },
+    {
+      "id": "topic-7",
+      "label": "Прошивки и восстановление работы"
+    }
+  ],
+  "pages": [
+    {
+      "source": "faq/filament/asa-layer-separation.md",
+      "route": "faq/filament/asa-layer-separation",
+      "group": "topic-1"
+    },
+    {
+      "source": "faq/centauri/cc1-filament-loading.md",
+      "route": "faq/centauri/cc1-filament-loading",
+      "group": "topic-1"
+    },
+    {
+      "source": "faq/centauri/cc2-filament-backup.md",
+      "route": "faq/centauri/cc2-filament-backup",
+      "group": "topic-1"
+    },
+    {
+      "source": "faq/filament/drying-and-storage.md",
+      "route": "faq/filament/drying-and-storage",
+      "group": "topic-1"
+    },
+    {
+      "source": "faq/filament/tpu-feed-path.md",
+      "route": "faq/filament/tpu-feed-path",
+      "group": "topic-1"
+    },
+    {
+      "source": "faq/filament/feed-resistance.md",
+      "route": "faq/filament/feed-resistance",
+      "group": "topic-1"
+    },
+    {
+      "source": "faq/centauri/cc1-build-plate-selection.md",
+      "route": "faq/centauri/cc1-build-plate-selection",
+      "group": "topic-2"
+    },
+    {
+      "source": "faq/first-layer-adhesion.md",
+      "route": "faq/first-layer-adhesion",
+      "group": "topic-2"
+    },
+    {
+      "source": "faq/debris-under-build-plate.md",
+      "route": "faq/debris-under-build-plate",
+      "group": "topic-2"
+    },
+    {
+      "source": "faq/printing/warping-and-brim.md",
+      "route": "faq/printing/warping-and-brim",
+      "group": "topic-2"
+    },
+    {
+      "source": "faq/printing/empty-start-skirt.md",
+      "route": "faq/printing/empty-start-skirt",
+      "group": "topic-2"
+    },
+    {
+      "source": "faq/centauri/first-layer-z-offset.md",
+      "route": "faq/centauri/first-layer-z-offset",
+      "group": "topic-2"
+    },
+    {
+      "source": "faq/printing/elephant-foot.md",
+      "route": "faq/printing/elephant-foot",
+      "group": "topic-2"
+    },
+    {
+      "source": "faq/centauri/cc1-first-layer-height.md",
+      "route": "faq/centauri/cc1-first-layer-height",
+      "group": "topic-2"
+    },
+    {
+      "source": "faq/slicing/temperature-tower.md",
+      "route": "faq/slicing/temperature-tower",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/flow-ratio.md",
+      "route": "faq/slicing/flow-ratio",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/pressure-advance.md",
+      "route": "faq/slicing/pressure-advance",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/support-removal.md",
+      "route": "faq/slicing/support-removal",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/overhang-walls.md",
+      "route": "faq/slicing/overhang-walls",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/vase-wall-gaps.md",
+      "route": "faq/slicing/vase-wall-gaps",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/profile-baseline.md",
+      "route": "faq/slicing/profile-baseline",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/small-part-cooling-time.md",
+      "route": "faq/slicing/small-part-cooling-time",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/seam-placement.md",
+      "route": "faq/slicing/seam-placement",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/scarf-seam.md",
+      "route": "faq/slicing/scarf-seam",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/fuzzy-skin.md",
+      "route": "faq/slicing/fuzzy-skin",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/surface-wall-gaps.md",
+      "route": "faq/slicing/surface-wall-gaps",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/ironing.md",
+      "route": "faq/slicing/ironing",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/travel-scratches-z-hop.md",
+      "route": "faq/slicing/travel-scratches-z-hop",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/bridges.md",
+      "route": "faq/slicing/bridges",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/model-mesh-repair.md",
+      "route": "faq/slicing/model-mesh-repair",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/arc-preview.md",
+      "route": "faq/slicing/arc-preview",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/manual-color-change.md",
+      "route": "faq/slicing/manual-color-change",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/centauri/cc1-hotend-damage.md",
+      "route": "faq/centauri/cc1-hotend-damage",
+      "group": "topic-4"
+    },
+    {
+      "source": "faq/printing/nozzle-clog.md",
+      "route": "faq/printing/nozzle-clog",
+      "group": "topic-4"
+    },
+    {
+      "source": "faq/centauri/cc2-extrusion-1243.md",
+      "route": "faq/centauri/cc2-extrusion-1243",
+      "group": "topic-4"
+    },
+    {
+      "source": "faq/centauri/heating-error-103.md",
+      "route": "faq/centauri/heating-error-103",
+      "group": "topic-4"
+    },
+    {
+      "source": "faq/centauri/cc1-uncontrolled-heating.md",
+      "route": "faq/centauri/cc1-uncontrolled-heating",
+      "group": "topic-4"
+    },
+    {
+      "source": "faq/centauri/cc1-printhead-communication.md",
+      "route": "faq/centauri/cc1-printhead-communication",
+      "group": "topic-4"
+    },
+    {
+      "source": "faq/centauri/cc1-fan-703.md",
+      "route": "faq/centauri/cc1-fan-703",
+      "group": "topic-4"
+    },
+    {
+      "source": "faq/printing/extruder-grip.md",
+      "route": "faq/printing/extruder-grip",
+      "group": "topic-4"
+    },
+    {
+      "source": "faq/centauri/cc1-bed-mesh-viewer.md",
+      "route": "faq/centauri/cc1-bed-mesh-viewer",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/cosmos-bed-probe.md",
+      "route": "faq/centauri/cosmos-bed-probe",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/bed-leveling-502.md",
+      "route": "faq/centauri/bed-leveling-502",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/z-axis-binding.md",
+      "route": "faq/centauri/z-axis-binding",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/cc1-idle-noise.md",
+      "route": "faq/centauri/cc1-idle-noise",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/cc1-exhaust-fan-control.md",
+      "route": "faq/centauri/cc1-exhaust-fan-control",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/mainboard-fan-noise.md",
+      "route": "faq/centauri/mainboard-fan-noise",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/toolhead-cover-rattle.md",
+      "route": "faq/centauri/toolhead-cover-rattle",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/axis-noise.md",
+      "route": "faq/centauri/axis-noise",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/cc1-antivibration-feet.md",
+      "route": "faq/centauri/cc1-antivibration-feet",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/cc1-vented-riser.md",
+      "route": "faq/centauri/cc1-vented-riser",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/cc1-nozzle-light.md",
+      "route": "faq/centauri/cc1-nozzle-light",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/cc2-ptfe-release.md",
+      "route": "faq/centauri/cc2-ptfe-release",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/cc1-full-build-area.md",
+      "route": "faq/centauri/cc1-full-build-area",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/printer-ip-address.md",
+      "route": "faq/centauri/printer-ip-address",
+      "group": "topic-6"
+    },
+    {
+      "source": "faq/centauri/cc1-remote-access.md",
+      "route": "faq/centauri/cc1-remote-access",
+      "group": "topic-6"
+    },
+    {
+      "source": "faq/web-interface-recovery.md",
+      "route": "faq/web-interface-recovery",
+      "group": "topic-6"
+    },
+    {
+      "source": "faq/centauri/cc2-camera-not-detected.md",
+      "route": "faq/centauri/cc2-camera-not-detected",
+      "group": "topic-6"
+    },
+    {
+      "source": "faq/centauri/cc2-lan-connection.md",
+      "route": "faq/centauri/cc2-lan-connection",
+      "group": "topic-6"
+    },
+    {
+      "source": "faq/centauri/file-upload-failure.md",
+      "route": "faq/centauri/file-upload-failure",
+      "group": "topic-6"
+    },
+    {
+      "source": "faq/centauri/cosmos-purge-collision.md",
+      "route": "faq/centauri/cosmos-purge-collision",
+      "group": "topic-7"
+    },
+    {
+      "source": "faq/centauri/cc2-printer-busy.md",
+      "route": "faq/centauri/cc2-printer-busy",
+      "group": "topic-7"
+    },
+    {
+      "source": "faq/centauri/slicer-firmware-compatibility.md",
+      "route": "faq/centauri/slicer-firmware-compatibility",
+      "group": "topic-7"
+    },
+    {
+      "source": "faq/centauri/white-screen-recovery.md",
+      "route": "faq/centauri/white-screen-recovery",
+      "group": "topic-7"
+    },
+    {
+      "source": "faq/centauri/cc2-offline-firmware-update.md",
+      "route": "faq/centauri/cc2-offline-firmware-update",
+      "group": "topic-7"
+    },
+    {
+      "source": "site/home.mdx",
+      "route": "",
+      "group": "start"
+    },
+    {
+      "source": "site/beginners.md",
+      "route": "start/beginners",
+      "group": "start"
+    },
+    {
+      "source": "site/advanced.md",
+      "route": "start/advanced",
+      "group": "start"
+    },
+    {
+      "source": "site/models.md",
+      "route": "start/models",
+      "group": "start"
+    },
+    {
+      "source": "site/method.md",
+      "route": "sources/method",
+      "group": "sources"
+    },
+    {
+      "source": "docs/evidence.md",
+      "route": "sources/pilot",
+      "group": "sources"
+    },
+    {
+      "source": "docs/evidence-more.md",
+      "route": "sources/topics",
+      "group": "sources"
+    },
+    {
+      "source": "docs/evidence-expanded.md",
+      "route": "sources/expanded",
+      "group": "sources"
+    },
+    {
+      "source": "docs/evidence-qa.md",
+      "route": "sources/questions",
+      "group": "sources"
+    },
+    {
+      "source": "docs/evidence-history.md",
+      "route": "sources/history",
+      "group": "sources"
+    },
+    {
+      "source": "docs/sources.md",
+      "route": "sources/documentation",
+      "group": "sources"
+    }
+  ],
+  "aliases": {
+    "README.md": "",
+    "docs/topic-map.md": "sources/method",
+    "docs/history-audit.md": "sources/method"
+  }
+}

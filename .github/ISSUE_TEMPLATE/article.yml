@@ -1,0 +1,31 @@
+name: Тема или решение для FAQ
+description: Предложить статью, собрать повторные случаи и обсудить решение
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Проблема и условия
+      description: Модель принтера, прошивка, слайсер, материал; симптомы и ожидаемый результат.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Что сделали и что получилось
+      description: Отделите успешный результат от предложенного совета. Укажите, что не помогло и какие действия выполнялись одновременно.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Подтверждения и повторные случаи
+      description: Ссылки на открытые обсуждения, документацию или обезличенные отчёты. Если случай пока один, так и напишите — подтверждения можно собрать в комментариях.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Перед отправкой
+      options:
+        - label: В предложении нет паролей, чужих контактов и закрытой переписки без разрешения на публикацию.
+          required: true

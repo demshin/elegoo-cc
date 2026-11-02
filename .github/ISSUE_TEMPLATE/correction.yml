@@ -1,0 +1,16 @@
+name: Ошибка на сайте или в статье
+description: Сообщить о неточности, неработающей ссылке или проблеме сайта
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Ссылка на страницу
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Что неверно и как должно быть
+      description: Для технического исправления укажите модель и условия; приложите основания или ссылку на документацию. Не публикуйте секреты и чужие персональные данные.
+    validations:
+      required: true

@@ -1,0 +1,119 @@
+---
+import { Icon } from '@astrojs/starlight/components';
+---
+<faq-search>
+  <button class="open-search" type="button" aria-label="Поиск по сайту" aria-haspopup="dialog" aria-keyshortcuts="Control+K Meta+K">
+    <Icon name="magnifier" size="1.2rem" /><span>Поиск по сайту</span><kbd>⌘ / Ctrl K</kbd>
+  </button>
+  <dialog aria-labelledby="faq-search-title">
+    <div class="search-heading"><h2 id="faq-search-title">Поиск по сайту</h2><button type="button" class="close-search" aria-label="Закрыть поиск">✕</button></div>
+    <label class="sr-only" for="faq-search-input">Симптом, вопрос или код ошибки</label>
+    <input id="faq-search-input" type="search" placeholder="Например: не липнет, ошибка 103" autocomplete="off" />
+    <p class="search-status" role="status" aria-live="polite">Введите симптом, вопрос или код ошибки.</p>
+    <ol class="search-results"></ol>
+    <button class="more-results" type="button" hidden>Ещё результаты</button>
+  </dialog>
+</faq-search>
+<script>
+  import { searchQuery } from '../lib/search-policy.mjs';
+  import { trackUsage } from '../lib/analytics.mjs';
+
+  class FaqSearch extends HTMLElement {
+    connectedCallback() {
+      const dialog = this.querySelector('dialog')!;
+      const open = this.querySelector<HTMLButtonElement>('.open-search')!;
+      const input = this.querySelector<HTMLInputElement>('input')!;
+      const status = this.querySelector<HTMLElement>('.search-status')!;
+      const list = this.querySelector<HTMLOListElement>('ol')!;
+      const more = this.querySelector<HTMLButtonElement>('.more-results')!;
+      const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+      let apiPromise: Promise<any> | undefined;
+      let timer: ReturnType<typeof setTimeout>;
+      let generation = 0;
+      let results: any[] = [];
+      let currentIntent = 'other';
+      let currentLength = 0;
+      const api = () => apiPromise ||= import(/* @vite-ignore */ `${base}/pagefind/pagefind.js`).catch(error => { apiPromise = undefined; throw error; });
+      const show = () => { if (!dialog.open) dialog.showModal(); input.focus(); };
+      open.addEventListener('click', show);
+      this.querySelector('.close-search')!.addEventListener('click', () => dialog.close());
+      dialog.addEventListener('close', () => open.focus());
+      dialog.addEventListener('click', event => { if (event.target === dialog) { const r = dialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close(); } });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && dialog.open) { event.preventDefault(); dialog.close(); return; }
+        if ((event.metaKey || event.ctrlKey) && event.code === 'KeyK') { event.preventDefault(); dialog.open ? dialog.close() : show(); }
+      });
+      const appendResults = async (version: number) => {
+        more.hidden = true;
+        const offset = list.children.length;
+        const batch = await Promise.all(results.slice(offset, offset + 8).map(result => result.data()));
+        if (version !== generation) return;
+        for (const [index, hit] of batch.entries()) {
+          const url = new URL(hit.url, window.location.origin);
+          if (url.origin !== window.location.origin || !url.pathname.startsWith(`${base}/`)) continue;
+          const item = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = url.pathname + url.hash;
+          link.textContent = hit.meta.title;
+          link.addEventListener('click', () => trackUsage('faq_search_result_click', { result_position: offset + index + 1, destination_path: url.pathname, query_intent: currentIntent }));
+          const excerpt = document.createElement('p');
+          excerpt.textContent = new DOMParser().parseFromString(hit.excerpt, 'text/html').body.textContent;
+          item.append(link, excerpt);
+          list.append(item);
+        }
+        more.hidden = list.children.length >= results.length;
+      };
+      const run = async (version: number) => {
+        const query = input.value.trim();
+        list.replaceChildren(); more.hidden = true; results = [];
+        if (!query) { status.textContent = 'Введите симптом, вопрос или код ошибки.'; return; }
+        status.textContent = 'Ищем…';
+        try {
+          const normalized = searchQuery(query);
+          const response = await (await api()).search(normalized.term);
+          if (version !== generation) return;
+          results = response.results;
+          currentIntent = normalized.intent;
+          currentLength = Math.min(query.length, 10000);
+          status.textContent = results.length ? `Найдено: ${results.length}` : 'Ничего не найдено. Попробуйте другой симптом или код ошибки.';
+          const values = { query_intent: currentIntent, query_length: currentLength, result_count: results.length };
+          await appendResults(version);
+          if (version !== generation) return;
+          trackUsage('faq_search', values);
+          if (!results.length) trackUsage('faq_search_empty', values);
+        } catch {
+          if (version === generation) status.textContent = 'Не удалось загрузить поиск. Попробуйте ещё раз.';
+        }
+      };
+      input.addEventListener('input', () => {
+        clearTimeout(timer);
+        const version = ++generation;
+        list.replaceChildren(); more.hidden = true;
+        status.textContent = input.value.trim() ? 'Ищем…' : 'Введите симптом, вопрос или код ошибки.';
+        timer = setTimeout(() => run(version), 250);
+      });
+      more.addEventListener('click', () => appendResults(generation).catch(() => { status.textContent = 'Не удалось загрузить результаты. Повторите поиск.'; }));
+    }
+  }
+  customElements.define('faq-search', FaqSearch);
+</script>
+<style>
+  faq-search { display: block; }
+  button { cursor: pointer; font: inherit; color: inherit; }
+  .open-search { display: flex; align-items: center; gap: .6rem; width: 100%; min-height: 2.5rem; padding: .35rem .7rem; border: 1px solid var(--sl-color-gray-5); border-radius: .5rem; background: var(--sl-color-black); text-align: start; }
+  kbd { margin-inline-start: auto; font-size: .7rem; white-space: nowrap; color: var(--sl-color-gray-2); }
+  dialog { width: min(42rem, calc(100% - 2rem)); max-height: 80dvh; margin: 8dvh auto; padding: 1.25rem; border: 1px solid var(--sl-color-gray-4); border-radius: .75rem; background: var(--sl-color-bg); color: var(--sl-color-text); }
+  dialog::backdrop { background: #0009; backdrop-filter: blur(3px); }
+  .search-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  h2 { font-size: 1.2rem; margin: 0; }
+  .close-search { min-width: 2.75rem; min-height: 2.75rem; border: 0; background: transparent; }
+  input { box-sizing: border-box; width: 100%; margin-block-start: .75rem; padding: .8rem; border: 1px solid var(--sl-color-gray-3); border-radius: .4rem; font: inherit; background: var(--sl-color-black); color: inherit; }
+  .search-status { margin-block: .75rem; color: var(--sl-color-gray-2); font-size: .875rem; }
+  ol { padding-inline-start: 1.5rem; }
+  .search-results :global(li) { margin-block: 1rem; }
+  .search-results :global(li a) { color: var(--sl-color-text-accent); font-weight: 600; }
+  .search-results :global(li p) { font-size: .875rem; margin-block: .25rem; }
+  .more-results { min-height: 2.75rem; padding-inline: 1rem; border: 1px solid var(--sl-color-gray-4); border-radius: .4rem; background: var(--sl-color-black); }
+  :focus-visible { outline: 2px solid var(--sl-color-text-accent); outline-offset: 3px; }
+  @media (max-width: 49.999rem) { .open-search span, kbd { display: none; } .open-search { width: auto; min-width: 2.75rem; justify-content: center; } }
+</style>

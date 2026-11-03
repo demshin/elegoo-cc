@@ -203,14 +203,15 @@ def main():
                     add_ground(rewrite("README.md", destination, f"Источник сверки {index}"))
             status = review_status(original, record)
             panel = "> **Сверка с источниками:** " + status + "\n>\n> **Основания:** " + (" · ".join(grounds.values()) or "См. источники в тексте статьи.")
+            panel = '<aside data-pagefind-ignore>\n\n' + panel + '\n\n</aside>'
             metadata_end = text.index("\n---\n", 4) + len("\n---\n")
             text = text[:metadata_end] + "\n" + panel + "\n" + text[metadata_end:]
             links = feedback_links(route, title, scope)
             text += ('\n\n<section class="article-feedback" aria-label="Обратная связь по статье" data-pagefind-ignore>\n'
                      '<p><strong>Есть опыт по этой теме?</strong> Добавьте свой случай или сообщите о неточности.</p>\n'
                      '<div class="feedback-actions">'
-                     f'<a href="{escape(links["case"], quote=True)}">Добавить свой случай</a>'
-                     f'<a href="{escape(links["correction"], quote=True)}">Сообщить об ошибке</a>'
+                     f'<a data-faq-feedback="case" href="{escape(links["case"], quote=True)}">Добавить свой случай</a>'
+                     f'<a data-faq-feedback="correction" href="{escape(links["correction"], quote=True)}">Сообщить об ошибке</a>'
                      '</div>\n<p>Обсуждение откроется в GitHub Issues. Для отправки нужен аккаунт GitHub.</p>\n</section>\n')
         suffix = ".mdx" if path.suffix == ".mdx" else ".md"
         prepared.append((TARGET / ((route or "index") + suffix), text))

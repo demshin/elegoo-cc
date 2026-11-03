@@ -13,6 +13,788 @@
         "https://github.com/OrcaSlicer/OrcaSlicer/wiki/others_settings_skirt",
         "https://github.com/OrcaSlicer/OrcaSlicer/wiki/others_settings_brim"
       ]
+    },
+    "faq/centauri/cc1-uncontrolled-heating.md": {
+      "content_sha256": "918c508e5d23fbc0eecb22add57f9c215644670b0d132b4480fae316e5480f9d",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Два независимых владельца сообщили о восстановлении после замены платы головы; во втором случае одновременно заменён кабель и позднее возник отказ связи. Диагноз конкретного транзистора не установлен.",
+      "evidence": [
+        "docs/evidence-history.md#heat-startup",
+        "docs/evidence-history.md#heat-startup-jul-limit",
+        "https://wiki.elegoo.com/en/Centauri-carbon/nozzle-assembly-replacement"
+      ]
+    },
+    "faq/centauri/heating-error-103.md": {
+      "content_sha256": "532be9040e3a6d6b3b021e9cbee2d21981170b4af3160adb573cb1591a5b895a",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Назначение кода 103 и направления диагностики подтверждены ELEGOO. Оригиналы сохраняют разные вмешательства, краткий эффект кабеля, холодный старт и отсутствие доказанной прошивочной причины.",
+      "evidence": [
+        "docs/evidence-more.md#heat103",
+        "docs/evidence-history.md#heat103-history",
+        "https://wiki.elegoo.com/en/Centauri-carbon/103-the-print-head-didn't-heat-up-as-expected"
+      ]
+    },
+    "faq/centauri/cc1-printhead-communication.md": {
+      "content_sha256": "81b04f0b2799a3350ddb86747c4d7da330a0c57d9160288c1818442cf4c632a2",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Диагностика ELEGOO подтверждает проверку кабеля и плат, диодный режим около 0,700 В при отключённом питании. Успех комплекта, отрицательные случаи и рецидивы разделены корректно.",
+      "evidence": [
+        "docs/evidence-qa.md#head-link",
+        "docs/evidence-history.md#head-kit-followup",
+        "https://wiki.elegoo.com/en/Centauri-carbon/printhead-anomaly"
+      ]
+    },
+    "faq/centauri/cc1-fan-703.md": {
+      "content_sha256": "02e6e515bb59339a4253b2b83719e049fb1a87b864b0e7ed3faaf371372689c0",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Код 703 и штатная диагностика подтверждены ELEGOO и просмотренными фото. Два независимых исторических отчёта связывают улучшение со сменой прошивки; универсальная версия и порог мощности не заявлены.",
+      "evidence": [
+        "docs/evidence-qa.md#fan-703",
+        "docs/evidence-history.md#model-fan-control",
+        "https://wiki.elegoo.com/en/Centauri-carbon/errorcode-703-abnormal-model-fan",
+        "https://wiki.elegoo.com/Centauri-carbon/errorcode-702-abnormal-heat-break-cooling-fan"
+      ]
+    },
+    "faq/centauri/cc2-extrusion-1243.md": {
+      "content_sha256": "0796268e4f23ddc7c27a0dcb96a82fe765b1c756415c7af4abf4bf8d0c5abe78",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Назначение кода 1243, отключение Filament Ramming и различие готовых хотэндов CC1/CC2 подтверждены ELEGOO. Температурный успех, рецидив и отдельный опыт TPU переданы с ограничениями.",
+      "evidence": [
+        "docs/evidence-more.md#ex1243",
+        "docs/evidence-history.md#hotend-cc2-jul",
+        "https://wiki.elegoo.com/en/centauri-carbon-2-combo/errorcode-1243"
+      ]
+    },
+    "faq/centauri/cc2-printer-busy.md": {
+      "content_sha256": "1e47c2038076c96df9841189e262770289184822a055fe40326529eabbad7a7a",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Три независимых текстовых отчёта подтверждают обход зависшего состояния отключением сети; один прямо подтверждает печать с USB. Красные индикаторы требуют отдельной диагностики.",
+      "evidence": [
+        "docs/evidence-expanded.md#busy",
+        "docs/evidence-history.md#busy-april",
+        "https://wiki.elegoo.com/en/centauri-carbon-2-combo/canvas-4-red-leds-flashing-continuously-random-print-freezing"
+      ]
+    },
+    "faq/centauri/slicer-firmware-compatibility.md": {
+      "content_sha256": "be3ec91d56aa3057ba4b17817a6a58a38958998452b48ffa8db6b1d0737fb45c",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Оригиналы подтверждают восстановление обнаружения после обновления и отдельный отказ камеры. Проверены требования WebView2, исправления OrcaSlicer и переход Cosmos к PRINT_START/PRINT_END.",
+      "evidence": [
+        "docs/evidence-expanded.md#compat",
+        "docs/evidence-history.md#lan-orca-cc2",
+        "https://github.com/elegooofficial/ElegooSlicer#how-to-install",
+        "https://github.com/OrcaSlicer/OrcaSlicer/pull/14136",
+        "https://docs.opencentauri.cc/klipper-conversion/cosmos/troubleshooting/printing/"
+      ]
+    },
+    "faq/centauri/white-screen-recovery.md": {
+      "content_sha256": "cadd0e5f675502e93939b2e9a8f29cc3dd9e67a9c3bae6d550efb6c42821a3bc",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Два независимых владельца сообщили о восстановлении пакетом поддержки; способы различались. Оригиналы подтверждают живую систему при белом экране, отдельный откат и неполное восстановление CANVAS.",
+      "evidence": [
+        "docs/evidence-expanded.md#display",
+        "docs/evidence-history.md#display-april-state",
+        "docs/evidence-history.md#display-april-recovery",
+        "https://www.elegoo.com/pages/download"
+      ]
+    },
+    "faq/centauri/cc2-offline-firmware-update.md": {
+      "content_sha256": "23c563865acd0b43e571285d0ee892c730cdb28bf5fc724c702d5c26afe0c86b",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Ручная установка CC2 с USB подтверждается независимыми исходами. OpenCentauri описывает .zip.sig и меню Offline Update; состав январского ZIP и минимальные версии приложений сверены.",
+      "evidence": [
+        "docs/evidence-history.md#fw-usb",
+        "docs/evidence-history.md#fw-usb-april",
+        "https://docs.opencentauri.cc/software/updates-cc2/",
+        "https://wiki.elegoo.com.cn/firmware/fdm/44452"
+      ]
+    },
+    "faq/centauri/cc1-hotend-damage.md": {
+      "content_sha256": "62a0d2fbbbfc0352d6c2d49e0e9e4eccb955bf9f22f05f4751c351fdc3993327",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Два независимых владельца подтвердили работу после замены хотэнда. Процедуры горячей смены сопла и замены всего узла отдельно сверены с ELEGOO; гипотезы о конструкции не выдаются за факт.",
+      "evidence": [
+        "docs/evidence-history.md#hkit",
+        "https://wiki.elegoo.com/en/Centauri-carbon/nozzle-assembly-replacement",
+        "https://wiki.elegoo.com/en/Centauri-carbon/centauri-carbon-nozzle-replacement"
+      ]
+    },
+    "faq/printing/nozzle-clog.md": {
+      "content_sha256": "c31cbc15c9d181a78f48c86709ccffe2714ea0899345e9d84acac049ca4e9b07",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Независимые владельцы сообщили об успехе очистки; отрицательные попытки, сочетания действий и возвраты 1243 сохранены. Процедура ELEGOO для CC2 подтверждает ограничения cold pull и горячей очистки.",
+      "evidence": [
+        "docs/evidence-more.md#clog",
+        "docs/evidence-history.md#clog-april-cc2",
+        "https://wiki.elegoo.com/en/centauri-carbon-2-combo/unclogging-the-nozzle"
+      ]
+    },
+    "faq/printing/extruder-grip.md": {
+      "content_sha256": "9470f53971b8edf45186948201bae6b1de04cc29ca48a0099d3910edac012327",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Независимые отчёты подтверждают восстановление подачи после регулировки прижима. Продолжение с пропусками PETG явно связано с GRIP-HISTORY; краткие и совместные вмешательства не объявлены устойчивым ремонтом.",
+      "evidence": [
+        "docs/evidence-expanded.md#grip",
+        "docs/evidence-history.md#grip-history",
+        "docs/evidence-history.md#grip-april",
+        "https://wiki.elegoo.com/en/centauri-carbon-2-combo/troubleshooting/clogged-nozzle"
+      ]
+    },
+    "faq/centauri/cc1-bed-mesh-viewer.md": {
+      "content_sha256": "35961d56649d70e7b9e988c115226134fd032e05e070d53c744fe46e59c7927a",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Просмотр сохранённой карты подтверждают независимые обращения и три осмотренных скриншота. Код визуализатора и документация M8803 подтверждают локальное чтение, формулу перепада и отличие экспорта от измерения.",
+      "evidence": [
+        "docs/evidence-history.md#mesh",
+        "docs/evidence-history.md#mesh-assistant",
+        "https://suchmememanyskill.github.io/bens-claude-cc-mesh-visualiser/",
+        "https://docs.opencentauri.cc/software/custom-gcode/#m8803",
+        "https://github.com/suchmememanyskill/bens-claude-cc-mesh-visualiser/blob/main/index.html"
+      ]
+    },
+    "faq/centauri/cosmos-bed-probe.md": {
+      "content_sha256": "3b8b8a50d5537a6f60d40f53017bd1bc6d086f4897df787cc681081dbc248b19",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Документация Cosmos подтверждает проверку механики и разъёмов до калибровки и запрет повышать force_safety_limit. Независимые исходы и ограничения по температуре и модели переданы верно.",
+      "evidence": [
+        "docs/evidence-history.md#cosmos-probe-october",
+        "https://docs.opencentauri.cc/klipper-conversion/cosmos/troubleshooting/bed/"
+      ]
+    },
+    "faq/centauri/bed-leveling-502.md": {
+      "content_sha256": "ead8dc9124a51476166f15619a2d9efdffc294929ad4ea274830f0ecb9efbe21",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Назначение кода 502 и порядок проверки подтверждены ELEGOO. Оригиналы и фото подтверждают отдельные исходы механики, разъёмов, неверного профиля и замены хотэнда; похожие коды не смешаны.",
+      "evidence": [
+        "docs/evidence-expanded.md#probe",
+        "docs/evidence-history.md#probe-wrong-profile",
+        "https://wiki.elegoo.com/en/Centauri-carbon/leveling-sensor-data-collection-error"
+      ]
+    },
+    "faq/centauri/z-axis-binding.md": {
+      "content_sha256": "680aaf2d2aaed572277acd93c6ee8758c3563981dcb0dc6cd5fcca3547e786e6",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Независимые истории подтверждают восстановление движения разными вмешательствами. Исход владельца с повреждённой рамой отрицательный; ELEGOO отдельно подчёркивает диагностическое назначение пропуска самотеста.",
+      "evidence": [
+        "docs/evidence-expanded.md#zbind",
+        "https://wiki.elegoo.com/en/Centauri-carbon/skip-self-test-and-troubleshoot-startup"
+      ]
+    },
+    "faq/centauri/cc1-idle-noise.md": {
+      "content_sha256": "518b7b457a8164403ad40c639d8aab86392f5b70c914c9e55211cc5b085867cb",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Один владелец прямо подтвердил исчезновение остаточного шума после отключения двигателей; повторные сообщения описывают такой обход после смены нити. Руководство CC1 показывает отдельные вкладки, но не правила управления вентиляторами.",
+      "evidence": [
+        "docs/evidence-history.md#idle-noise",
+        "https://elegoo-downloads.oss-us-west-1.aliyuncs.com/tutorials/Centauri%20Carbon/Accompanying/Centauri%20Carbon%20User%20Manual-EN-V1.2.pdf"
+      ]
+    },
+    "faq/centauri/cc1-exhaust-fan-control.md": {
+      "content_sha256": "19e9b3ec6db97c839c830f724f831a6ab49c8c28580f6a0210a9908476531ae8",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Два независимых владельца подтвердили отключение вытяжки после OpenCentauri patched. Документация проекта подтверждает исправление автозапуска и сохранение управления M106 P3 и Exhaust fan из слайсера.",
+      "evidence": [
+        "docs/evidence-history.md#exhaust",
+        "https://docs.opencentauri.cc/patched-firmware/features/",
+        "https://docs.opencentauri.cc/patched-firmware/install/",
+        "https://docs.opencentauri.cc/patched-firmware/"
+      ]
+    },
+    "faq/centauri/mainboard-fan-noise.md": {
+      "content_sha256": "971b4d80a868892d9aa0517126462b240c554f04b3e8781f6c4d4e417b1076c7",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Три независимых текстовых отчёта подтверждают уменьшение шума развязкой. Замена, смазка и двухконтактный вентилятор имеют разные исходы; первичные инструкции и расхождение числа контактов проверены.",
+      "evidence": [
+        "docs/evidence-history.md#board-fan",
+        "docs/evidence-history.md#board-fan-03",
+        "docs/evidence-history.md#board-fan-later",
+        "https://wiki.elegoo.com/en/Centauri-carbon/how-to-replace-the-motherboard-cooling-fan",
+        "https://docs.opencentauri.cc/hardware/CC1/misc/"
+      ]
+    },
+    "faq/centauri/toolhead-cover-rattle.md": {
+      "content_sha256": "988c2246ded796bd68248933ac1dc58fb7bf0fd9e615bb8c27cd817d2f0b94bd",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Независимые отчёты подтверждают эффект крепления крышки; сохранены рецидив прокладки, отрицательные замены крышек и отдельный результат CC2. Универсальная конструкция или ресурс не заявлены.",
+      "evidence": [
+        "docs/evidence-expanded.md#cover",
+        "docs/evidence-history.md#cover-padding-followup",
+        "docs/evidence-history.md#cover-cc2-printed",
+        "https://wiki.elegoo.com/en/centauri-carbon-2-combo/printer-noise-issue"
+      ]
+    },
+    "faq/centauri/axis-noise.md": {
+      "content_sha256": "b6e92f9f1ed276f2b338d521a41dfc5c86764fcf162b6614fffc335612d27384",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Оригиналы подтверждают успех комплексного обслуживания и отрицательные результаты, включая рецидив подшипников и ремней. Руководства ELEGOO разделяют опору, вентиляторы, направляющие и привод.",
+      "evidence": [
+        "docs/evidence-expanded.md#axis",
+        "docs/evidence-history.md#axis-bearing-recurrence",
+        "https://wiki.elegoo.com/en/Centauri-carbon/routine-maintenance",
+        "https://wiki.elegoo.com/en/centauri-carbon-2-combo/printer-noise-issue"
+      ]
+    },
+    "faq/centauri/cc1-antivibration-feet.md": {
+      "content_sha256": "0cef02db5242c0508d8a0409869d4cf53c5fb7f581eb76fb9cc7d27577108d03",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Независимые положительные отчёты и фото установленных опор подтверждают осторожную рекомендацию. Сохранены неопределённая польза, раскачивание и проседание TPU; объективных акустических сравнений нет.",
+      "evidence": [
+        "docs/evidence-history.md#feet",
+        "docs/evidence-history.md#feet-durability",
+        "docs/evidence-history.md#feet-mar",
+        "https://wiki.elegoo.com/en/Centauri-carbon/leveling-sensor-data-collection-error"
+      ]
+    },
+    "faq/centauri/cc1-vented-riser.md": {
+      "content_sha256": "bc1861e285fc6056e586397b83cbfab740fc895135edb949dfee976bf2a6a6a1",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Архив подтверждает блокировку шторок поддержками и успешную сборку без них у другого владельца. Сочетание настроек и слабые температурные наблюдения оговорены; описание автора модели остаётся недоступным.",
+      "evidence": [
+        "docs/evidence-history.md#riser",
+        "docs/evidence-history.md#riser-temp-followup",
+        "https://www.printables.com/model/1180396-elegoo-centauri-carbon-vented-riser"
+      ]
+    },
+    "faq/centauri/cc1-nozzle-light.md": {
+      "content_sha256": "01dc91714bc60a50bfbe1aa895ed71f525936e4050e14d2fb5fb1ceb11a30941",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Независимые владельцы подтвердили установку, один — автоматическое управление. Light Mods подтверждает LED 5730, необязательную замену R18 и разные команды штатной прошивки и Cosmos; ограничения яркости сохранены.",
+      "evidence": [
+        "docs/evidence-history.md#nozzle-led",
+        "docs/evidence-history.md#nozzle-led-limits",
+        "https://docs.opencentauri.cc/mods/light_mods/"
+      ]
+    },
+    "faq/centauri/cc2-ptfe-release.md": {
+      "content_sha256": "a1553af0a749e81c4c4053a695eef1295e7030cba06d82adf7df0d2fef27c349",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Независимые владельцы подтвердили снятие трубок с фиксацией кольца; ещё один указал большое усилие. ELEGOO подтверждает штатный инструмент и вертикальное извлечение; исходный отказ CANVAS не объявлен устранённым.",
+      "evidence": [
+        "docs/evidence-expanded.md#tubes",
+        "docs/evidence-history.md#tube-channel-followup",
+        "docs/evidence-history.md#tube-september",
+        "https://wiki.elegoo.com/en/centauri-carbon-2-combo/4-in-1-hub-disassembly-installation"
+      ]
+    },
+    "faq/centauri/cc1-full-build-area.md": {
+      "content_sha256": "49b7bd91bcb7b6a5fe60e598ff36096760be4e0d308f4538d33ef1833033c31b",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Процедура ELEGOO подтверждает снятие упора резака вместе с изменением Excluded bed area и ручную выгрузку. В архиве повторяются вопросы, а положительный опыт принадлежит ответившему владельцу.",
+      "evidence": [
+        "docs/evidence-qa.md#area-01",
+        "docs/evidence-qa.md#area-02",
+        "docs/evidence-qa.md#area-03",
+        "https://wiki.elegoo.com/en/Centauri-carbon/centauri-carbon-how-to-print-at-the-full-size"
+      ]
+    },
+    "faq/centauri/cosmos-purge-collision.md": {
+      "content_sha256": "de4be3a75ef3998ee074cbbc8bc25afa88dcab7571f6d87b38726f9bffa48997",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Два независимых владельца подтвердили пересечение адаптивной линии с областью печати. Cosmos описывает неучтённые поддержки и альтернативную линию при отключении; один частный успех отступа не универсализирован.",
+      "evidence": [
+        "docs/evidence-history.md#cosmos-purge-october",
+        "https://docs.opencentauri.cc/klipper-conversion/cosmos/troubleshooting/printing/"
+      ]
+    },
+    "faq/slicing/temperature-tower.md": {
+      "content_sha256": "24f582f118b3bd4ce0eab2f263f1ce0395e9ed6f677dee4f77a163810190c18a",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Назначение башни и архивные числа подтверждены; второй опыт теперь явно ограничен улучшением начала печати после двух изменений без результата готовой детали.",
+      "evidence": [
+        "docs/evidence-history.md#temp-tower",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/temp_calib",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/calibration_guide"
+      ]
+    },
+    "faq/slicing/flow-ratio.md": {
+      "content_sha256": "83ef7a51f6d732d18e05e97e5cedb546a5030ae34626346f34003132172e1e6a",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Формулы двухпроходного теста и YOLO, сохранение профиля и два независимых успешных исхода подтверждены; причины щелчков и совместных изменений корректно ограничены.",
+      "evidence": [
+        "docs/evidence-more.md#flow",
+        "docs/evidence-history.md#flow-formula",
+        "docs/evidence-history.md#flow-diameter",
+        "docs/evidence-history.md#flow-walls",
+        "docs/evidence-history.md#flow-02-followup",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/flow_ratio_calib",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/material_basic_information",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/material_volumetric_speed_limitation",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/pressure_advance_calib",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/calibration_guide"
+      ]
+    },
+    "faq/slicing/pressure-advance.md": {
+      "content_sha256": "521b322b8627bc7fb0d2101addff8e48a4485e303ab6eeb07fc986af111a517c",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Методика и PA 0,04 подтверждены одной завершённой цепочкой; второй независимый успешный исход в выбранных источниках отсутствует.",
+      "evidence": [
+        "docs/evidence-qa.md#pa-01",
+        "docs/evidence-qa.md#pa-02",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/pressure_advance_calib",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/calibration_guide",
+        "https://elegoo-downloads.oss-us-west-1.aliyuncs.com/tutorials/Centauri%20Carbon/Accompanying/Centauri%20Carbon%20User%20Manual-EN-V1.2.pdf"
+      ]
+    },
+    "faq/slicing/support-removal.md": {
+      "content_sha256": "3dcd4f26abcb68149f828f3bc8101e13d08e84cfe65e515432244b52ffdb6069",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Различия Z-зазоров и расстояния линий подтверждены Orca; независимые сообщения об улучшении и завершённая печать поддерживают ограниченную методику подбора.",
+      "evidence": [
+        "docs/evidence-more.md#sup",
+        "docs/evidence-history.md#sup-petg-completed",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/support_settings_advanced",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_bridging"
+      ]
+    },
+    "faq/slicing/overhang-walls.md": {
+      "content_sha256": "9b1a6d2f8d1cb61769eaa7894b8250f5a35b074953028771b8e622219cb23cbd",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Независимые исходы смены порядка стенок, уменьшения слоя и обдува подтверждены; совместное изменение ориентации и слоя не приписано одному параметру.",
+      "evidence": [
+        "docs/evidence-more.md#over",
+        "docs/evidence-history.md#over-cooling",
+        "docs/evidence-history.md#over-orientation",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_wall_and_surfaces",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_layer_height"
+      ]
+    },
+    "faq/slicing/vase-wall-gaps.md": {
+      "content_sha256": "66abf8caefb630ac9300d32a8083e29ebc8d6800f940bbb88c0398b257974fff",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Дефект воспроизведён двумя независимыми владельцами; уменьшение слоя 0,2→0,15 мм и полная печать подтверждены только первым.",
+      "evidence": [
+        "docs/evidence-history.md#vase-gap",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/others_settings_special_mode",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_layer_height"
+      ]
+    },
+    "faq/slicing/profile-baseline.md": {
+      "content_sha256": "7165524fb995a6e400e875b30a041564a10df7b3e8386e90339be6614ff69d2d",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Возврат к подходящему профилю и проверка проекта поддержаны независимыми исходами; частичные результаты выбора материала, экспорта и синхронизации явно отделены от готовой печати.",
+      "evidence": [
+        "docs/evidence-more.md#profile",
+        "docs/evidence-history.md#profile-temperature-fields",
+        "docs/evidence-history.md#profile-cc2-material-choice",
+        "docs/evidence-history.md#profile-canvas-sync",
+        "docs/evidence-history.md#profile-3mf",
+        "docs/evidence-history.md#profile-stl-export",
+        "docs/evidence-history.md#profile-reinstall",
+        "docs/evidence-history.md#profile-rollback",
+        "docs/evidence-history.md#profile-rapid-comparison",
+        "docs/evidence-history.md#profile-process-followup",
+        "docs/evidence-history.md#probe-wrong-profile",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/import_export",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/material_temperatures",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/material_basic_information",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/calibration_guide"
+      ]
+    },
+    "faq/slicing/small-part-cooling-time.md": {
+      "content_sha256": "ccd3554dd80d08470f771bc65604187ff6e030003a45fee9bd4cd40e318fca5b",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Назначение охлаждения и минимальной скорости подтверждено Orca; архив подтверждает расчёт 37→10 минут и независимые вопросы, но не качество ускоренного отпечатка.",
+      "evidence": [
+        "docs/evidence-history.md#layer-time",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/material_cooling",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/material_volumetric_speed_limitation"
+      ]
+    },
+    "faq/slicing/seam-placement.md": {
+      "content_sha256": "9a107bd2099308bb867733fee2d327b11ffede2283219f59a22a5a5934eac2af",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Рисование и режимы расположения шва подтверждены Orca и прямым успешным ответом; второй опыт имеет неназванные параметры и не представлен повторным тестом рисования.",
+      "evidence": [
+        "docs/evidence-expanded.md#seam",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_seam"
+      ]
+    },
+    "faq/slicing/scarf-seam.md": {
+      "content_sha256": "17136763349644fcdec9cf919c0c9494f7e21227f34b8ef8044ccfa98a809734",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Механизм и ограничения Scarf подтверждены Orca; независимые сообщения об удачной настройке отделены от частичного первого теста и поздних нерешённых вопросов.",
+      "evidence": [
+        "docs/evidence-qa.md#scarf-01",
+        "docs/evidence-qa.md#scarf-02",
+        "docs/evidence-qa.md#scarf-03",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_seam"
+      ]
+    },
+    "faq/slicing/fuzzy-skin.md": {
+      "content_sha256": "cf3415c053c47b96d0c9b299bdc1af7ea097fd8af56557f5170172a171ecbd1b",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Два независимых готовых изделия и отдельный результат предпросмотра подтверждены; назначение параметров, области и влияние на размеры сверены с Orca.",
+      "evidence": [
+        "docs/evidence-history.md#fuzzy",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/others_settings_fuzzy_skin"
+      ]
+    },
+    "faq/slicing/surface-wall-gaps.md": {
+      "content_sha256": "03c9e1285561cb67ac6e393c8066aa3f43fd5612cf0bbdb3edfde41d24d943ec",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Перекрытие поверхности top_bottom_infill_wall_overlap и успешные 15% подтверждены снимком и ответом; независимые вопросы не выданы за дополнительные успешные испытания.",
+      "evidence": [
+        "docs/evidence-qa.md#overlap-01",
+        "docs/evidence-qa.md#overlap-02",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/strength_settings_top_bottom_shells"
+      ]
+    },
+    "faq/slicing/ironing.md": {
+      "content_sha256": "778a9cedc216c3e150c872231438ca15dd865bfaded7e534b4b2e6496a82ebbe",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Поток разглаживания 15% и отключение разглаживания поддержки подтверждены разными исходами; риск heat creep описан Orca, но не выдан за измеренную причину засора.",
+      "evidence": [
+        "docs/evidence-qa.md#iron-01",
+        "docs/evidence-qa.md#iron-02",
+        "docs/evidence-history.md#iron-02-history",
+        "docs/evidence-qa.md#iron-03",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_ironing",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/support_settings_ironing"
+      ]
+    },
+    "faq/slicing/travel-scratches-z-hop.md": {
+      "content_sha256": "b60c174ccedd6a0ecc7968b3f850915c9195932d8b24c7e1d2ba082d91a0dc38",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Отключение Reduce infill retraction и появление подъёма подтверждены G-code-снимком и Orca; завершённая повторная печать и второй успешный физический исход не заявлены.",
+      "evidence": [
+        "docs/evidence-history.md#travel",
+        "docs/evidence-history.md#travel-referral",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/others_settings_g_code_output",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/printer_extruder_z_hop"
+      ]
+    },
+    "faq/slicing/bridges.md": {
+      "content_sha256": "df552172fd0a6d68530ad6ee8b0ec4eaf1ef672c8e77f22050451142ab3a8d3d",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Различия плотности и потока, арифметика коэффициентов и независимые улучшения подтверждены; поздние неудачи переноса профиля и совместные изменения сохранены.",
+      "evidence": [
+        "docs/evidence-qa.md#bridge-01",
+        "docs/evidence-qa.md#bridge-02",
+        "docs/evidence-qa.md#bridge-03",
+        "docs/evidence-history.md#bridge-flow-fields",
+        "docs/evidence-history.md#bridge-feb",
+        "docs/evidence-history.md#bridge-pla-width",
+        "docs/evidence-history.md#bridge-internal-cooling",
+        "docs/evidence-history.md#bridge-october-limits",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_bridging"
+      ]
+    },
+    "faq/slicing/model-mesh-repair.md": {
+      "content_sha256": "5e7fbdce905d02ab6702293d3ad2d2b0477df43e66fec7ef4074799047d59435",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Оригиналы подтверждают два сообщения об исправлении в Orca и отдельный опыт ELEGOO; 647 открытых рёбер и ограничения текущей функции подтверждены снимком и wiki.",
+      "evidence": [
+        "docs/evidence-history.md#model-repair",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/prepare_stl_transformation"
+      ]
+    },
+    "faq/slicing/arc-preview.md": {
+      "content_sha256": "dd2805e1ea79a9b8287196c76e09aebde120c97cd167cd43c86fde01ed3a020c",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Два независимых улучшения предпросмотра после отключения дуг подтверждены; назначение G2/G3 и зависимость от прошивки сверены с Orca.",
+      "evidence": [
+        "docs/evidence-expanded.md#arc",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_precision"
+      ]
+    },
+    "faq/slicing/manual-color-change.md": {
+      "content_sha256": "2fc348f7ac56e630da824270fe43d9041edc1019c4b9eee61044aad9aaac93a8",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Независимые успешные ручные смены подтверждены; только один владелец явно указал CC1, что теперь отражено в статье. Продолжение M601/PAUSE в отдельной цепочке не удалось.",
+      "evidence": [
+        "docs/evidence-expanded.md#change",
+        "docs/evidence-history.md#pause-no-resume",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/built_in_placeholders_variables",
+        "https://elegoo-downloads.oss-us-west-1.aliyuncs.com/tutorials/Centauri%20Carbon/Accompanying/Centauri%20Carbon%20User%20Manual-EN-V1.2.pdf"
+      ]
+    },
+    "faq/filament/asa-layer-separation.md": {
+      "content_sha256": "ab47f4115c3ebd35979c8fefd9a8d0ae5fbfc4c0ba68b693489a86aa4fc5b35b",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Повторяемость расслоения и один успешный опыт уменьшения обдува подтверждены; ограничения материала и настроек сохранены.",
+      "evidence": [
+        "docs/evidence-history.md#asa-bond",
+        "https://support.colorfabb.com/hc/en-150/articles/14729667096465-ASA-Printer-Settings",
+        "https://fillamentum.com/wp-content/uploads/2020/10/Fillamentum_Printing_Guide_ASA_Extrafill.pdf"
+      ]
+    },
+    "faq/centauri/cc1-filament-loading.md": {
+      "content_sha256": "f02e38c3759f2181147affd79acd1c059a061762b4ac2e590c91f63007f75e08",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Два независимых перезапуска и ручной обход подтверждены оригиналами; неудачи и возвраты симптома сохранены.",
+      "evidence": [
+        "docs/evidence-history.md#load",
+        "docs/evidence-history.md#load-manual",
+        "docs/evidence-history.md#load-august-limit",
+        "https://elegoo-downloads.oss-us-west-1.aliyuncs.com/tutorials/Centauri%20Carbon/Accompanying/Centauri%20Carbon%20User%20Manual-EN-V1.2.pdf"
+      ]
+    },
+    "faq/centauri/cc2-filament-backup.md": {
+      "content_sha256": "7345443ef612cf17a88e2f9f6c64e387f8dcb8ba3a9b98ebbc427bb8aa766358",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Несколько независимых переходов на резервную катушку подтверждены; устранение загнутого конца — отдельный единичный исход.",
+      "evidence": [
+        "docs/evidence-history.md#backup",
+        "https://us.elegoo.com/products/centauri-carbon-2-combo",
+        "https://wiki.elegoo.com/en/faq/centauri-carbon-2-combo"
+      ]
+    },
+    "faq/filament/drying-and-storage.md": {
+      "content_sha256": "2085b4d96d5cf2d583045d51a300a0bb1ae4e5e31048253fcd398d8c6bf8d6be",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Сушка помогла разным владельцам; неудачи, одновременные изменения и отсутствие измерения влаги явно сохранены.",
+      "evidence": [
+        "docs/evidence-more.md#dry",
+        "docs/evidence-history.md#dry-history",
+        "docs/evidence-history.md#dry-x-followup",
+        "docs/evidence-history.md#dry-nylon",
+        "docs/evidence-history.md#string-matte",
+        "https://wiki.polymaker.com/printing-tips/common-printing-issues/wet-filament"
+      ]
+    },
+    "faq/filament/tpu-feed-path.md": {
+      "content_sha256": "1594148f658d94d2aa3fb78823722d99735a0d46d2b5a71e8acabbdc2115899d",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Прямая подача и обход CANVAS подтверждены ограниченными независимыми результатами; продолжения и совместные изменения отражены корректно.",
+      "evidence": [
+        "docs/evidence-more.md#tpu",
+        "docs/evidence-history.md#tpu-speed-followup",
+        "docs/evidence-history.md#tpu-path-may-june",
+        "docs/evidence-history.md#tpu-canvas-off-august",
+        "https://wiki.elegoo.com/en/faq/centauri-carbon-2-combo",
+        "https://help.prusa3d.com/article/flexible-materials_2057",
+        "https://wiki.elegoo.com/en/Centauri-carbon/how-to-replace-the-gear-of-the-extruder"
+      ]
+    },
+    "faq/filament/feed-resistance.md": {
+      "content_sha256": "057fa8343e69fac2886657e9078348b19b71a025ac42f3962e821524fcb7c266",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Независимые случаи сопротивления тракта подтверждены; обход CANVAS и возврат устройства не названы ремонтом многоцветной подачи.",
+      "evidence": [
+        "docs/evidence-expanded.md#drag",
+        "docs/evidence-history.md#drag-history",
+        "docs/evidence-history.md#drag-cc2-hub",
+        "docs/evidence-history.md#drag-canvas-october",
+        "https://wiki.elegoo.com/en/centauri-carbon-2-combo/errorcode-1243"
+      ]
+    },
+    "faq/centauri/cc1-build-plate-selection.md": {
+      "content_sha256": "841a6466bb361072e5e3222b576b2a70bfa406e32ef6315c25b63003d1e1147a",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Выбор поверхности и доступность списка подтверждены; число используемых прошивкой карт намеренно оставлено неопределённым.",
+      "evidence": [
+        "docs/evidence-history.md#plate-select",
+        "docs/evidence-history.md#plate-select-disabled",
+        "docs/evidence-history.md#plate-select-disabled-cc2",
+        "docs/evidence-history.md#plate-dispute",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/printer_basic_information_printable_space#support-multi-bed-types",
+        "https://github.com/OrcaSlicer/OrcaSlicer/blob/main/src/slic3r/Utils/ElegooLink.cpp"
+      ]
+    },
+    "faq/first-layer-adhesion.md": {
+      "content_sha256": "74c5e2584ae1cce2347049ef06bd4047a3314752b33e03e55ad5a6b71df124f0",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Независимые результаты повторной мойки подтверждены; химическая причина и совместные изменения не выданы за доказанный диагноз.",
+      "evidence": [
+        "docs/evidence.md#adh",
+        "docs/evidence-history.md#adh-wash-again",
+        "docs/evidence-history.md#adh-jul-cc2",
+        "https://wiki.elegoo.com/en/faq/centauri-carbon-2-combo"
+      ]
+    },
+    "faq/debris-under-build-plate.md": {
+      "content_sha256": "125cfee7546696bfd2b64e7a5a263769d478bd93381f5334aecc720399f4b707",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Два независимых обнаружения мусора и один явный успех очистки с калибровкой подтверждены; посадка пластины отделена.",
+      "evidence": [
+        "docs/evidence.md#bed",
+        "docs/evidence-history.md#plate-position",
+        "https://wiki.elegoo.com/en/faq/centauri-carbon-2-combo"
+      ]
+    },
+    "faq/printing/warping-and-brim.md": {
+      "content_sha256": "7bff16c9b71a658e53c231c74543ab48b6e80d5346cc6c58aab14dd2d597256b",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Кайма помогла в независимых PETG и PA6-CF историях; совместные тепловые меры и другой клей не обобщены.",
+      "evidence": [
+        "docs/evidence-more.md#warp",
+        "docs/evidence-history.md#warp-paht",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/others_settings_brim"
+      ]
+    },
+    "faq/centauri/first-layer-z-offset.md": {
+      "content_sha256": "05033353a97a07c52d714a03e1671cd5af54aebd9bdb23e05905535a5dd9d722",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Улучшения Z-offset подтверждены независимыми владельцами; различия сохранения и отозванное объяснение суммы поправок отражены.",
+      "evidence": [
+        "docs/evidence-expanded.md#zoffset",
+        "docs/evidence-history.md#zoff-03",
+        "docs/evidence-history.md#zoff-saved",
+        "docs/evidence-history.md#zoff-jul",
+        "https://wiki.elegoo.com/en/Centauri-carbon/tutorial-for-fine-tuning-after-automatic-re-leveling"
+      ]
+    },
+    "faq/printing/elephant-foot.md": {
+      "content_sha256": "9420933b7d18af08a93ed0955788fc0f278199b2115e45e093e65da57f36928f",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Компенсация основания и несколько независимых улучшений подтверждены; смешанные настройки и возвраты дефекта сохранены.",
+      "evidence": [
+        "docs/evidence-expanded.md#foot",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_precision#elephant-foot-compensation"
+      ]
+    },
+    "faq/centauri/cc1-first-layer-height.md": {
+      "content_sha256": "26e6e6180aac00324e4ecc8bd98f9fda42bd41c5ec43a7701550566962b73e18",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Исторические улучшения при меньшем первом слое подтверждены; алгоритм компенсации не объявлен проверенным.",
+      "evidence": [
+        "docs/evidence-qa.md#thin-01",
+        "docs/evidence-qa.md#thin-02",
+        "docs/evidence-history.md#thin-f334",
+        "docs/evidence-qa.md#thin-limit",
+        "https://wiki.elegoo.com/en/Centauri-carbon/tutorial-for-fine-tuning-after-automatic-re-leveling"
+      ]
+    },
+    "faq/centauri/printer-ip-address.md": {
+      "content_sha256": "21436affb954e91f018dd39102fdf277de75ead4ddc27c9b2f2e5da8304ff4f6",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Смена IP и собственный успешный опыт коррекции адреса подтверждены; совместные настройки и гипотеза DHCP ограничены.",
+      "evidence": [
+        "docs/evidence-history.md#ip",
+        "docs/evidence-history.md#host",
+        "docs/evidence-history.md#ip-network-jul",
+        "docs/evidence-history.md#host-type-mar",
+        "https://support.keenetic.com/starter/kn-1112/en/14008-connected-devices-registration.html"
+      ]
+    },
+    "faq/centauri/cc1-remote-access.md": {
+      "content_sha256": "bcfbc694fb7847b664ba26032ee498f99ec403467a200d6fc36169f3bf97d8b2",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Повторяемый вопрос удалённого доступа и один законченный SSTP-опыт подтверждены; инструкция Keenetic поддерживает сетевую схему.",
+      "evidence": [
+        "docs/evidence-history.md#remote",
+        "https://support.keenetic.ua/start/kn-1112/en/19090-sstp-vpn-server.html",
+        "https://support.keenetic.ua/start/kn-1112/en/21666-connecting-to-an-sstp-vpn-server-from-windows.html",
+        "https://support.keenetic.ua/start/kn-1112/en/21241-routing-networks-over-vpn.html"
+      ]
+    },
+    "faq/web-interface-recovery.md": {
+      "content_sha256": "8e3b8ea99b1c4bb3b1c1441d510001ce00c50aef0eaef9f3e01773f371cb10a3",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Исторические восстановления веб-интерфейса подтверждены шестью независимыми владельцами; возвраты, неудачи и другие конфигурации отделены.",
+      "evidence": [
+        "docs/evidence.md#web",
+        "docs/evidence.md#web-history",
+        "docs/evidence-history.md#web-browser",
+        "docs/evidence-history.md#web-ip-change",
+        "https://github.com/OrcaSlicer/OrcaSlicer/issues/10004",
+        "https://wiki.elegoo.com/en/centauri-carbon-2-combo/camera-issue",
+        "https://wiki.elegoo.com/canvas/camera-connection-and-multi-color-control-board-disconnection-errors"
+      ]
+    },
+    "faq/centauri/cc2-camera-not-detected.md": {
+      "content_sha256": "f911c1033d57cd681498dd1c2886a4854cb93b79b25832c9c5c566cc612eaa55",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Повторные отказы камеры и разные исходы подтверждены; замена и внешний USB-обход не обещаны долговечным общим ремонтом.",
+      "evidence": [
+        "docs/evidence-history.md#camera-cc2-october",
+        "https://wiki.elegoo.com/en/centauri-carbon-2-combo/camera-issue"
+      ]
+    },
+    "faq/centauri/cc2-lan-connection.md": {
+      "content_sha256": "2da4dad51dc813324ee2624d2f71ab130e23d958f2975e0e00ab2921b1782e74",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Независимые LAN-подключения и исторические ограничения Orca подтверждены; связь, камера и завершённая печать проверяются отдельно.",
+      "evidence": [
+        "docs/evidence-expanded.md#lan",
+        "docs/evidence-history.md#lan-mar",
+        "docs/evidence-history.md#lan-april-response",
+        "docs/evidence-history.md#lan-orca-cc2",
+        "docs/evidence-history.md#matrix-april-update",
+        "https://wiki.elegoo.com/en/centauri-carbon-2-combo/how-to-connect-the-printer-using-elegoo-slicer-and-elegoo-matrix-app",
+        "https://github.com/OrcaSlicer/OrcaSlicer/pull/13212",
+        "https://github.com/OrcaSlicer/OrcaSlicer/issues/14227",
+        "https://github.com/OrcaSlicer/OrcaSlicer/pull/14136"
+      ]
+    },
+    "faq/centauri/file-upload-failure.md": {
+      "content_sha256": "29dc06a12a24b920adf969b74ec5a1206e2da45a140e92c8c4853b2beb644f98",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Очистка помогла отдельным владельцам и не помогла другому; тип хоста и этап запуска подтверждены, единая причина не заявлена.",
+      "evidence": [
+        "docs/evidence-expanded.md#upload",
+        "docs/evidence-history.md#upload-screen",
+        "docs/evidence-history.md#host-http404",
+        "docs/evidence-history.md#host",
+        "docs/evidence-history.md#net-reinstall",
+        "https://wiki.elegoo.com/en/Centauri-carbon/touchscreen-not-work",
+        "https://github.com/OrcaSlicer/OrcaSlicer/blob/main/resources/profiles/Elegoo/machine/ECC/Elegoo%20Centauri%20Carbon%200.4%20nozzle.json",
+        "https://github.com/OrcaSlicer/OrcaSlicer/blob/main/src/slic3r/Utils/ElegooLink.cpp"
+      ]
     }
   }
 }

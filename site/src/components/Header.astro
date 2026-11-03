@@ -20,6 +20,14 @@ const community = config.social?.find(link => link.icon === 'telegram');
   <div class="theme print:hidden"><ThemeSelect /></div>
 </div>
 
+<script>
+  import { trackUsage } from '../lib/analytics.mjs';
+  document.addEventListener('click', event => {
+    const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[data-faq-feedback]') : null;
+    if (link) trackUsage('faq_feedback_click', { feedback_type: link.dataset.faqFeedback, article_path: window.location.pathname });
+  });
+</script>
+
 <style>
   .compact-header {
     display: flex;

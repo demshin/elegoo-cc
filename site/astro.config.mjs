@@ -32,7 +32,7 @@ gtag('config', '${googleAnalyticsId}');`,
         },
       ] : [],
       customCss: ['./src/styles/custom.css'],
-      components: { Header: './src/components/Header.astro' },
+      components: { Header: './src/components/Header.astro', Search: './src/components/Search.astro' },
       sidebar: [
         { label: 'Начать здесь', items: [{ slug: '' }, { slug: 'start/beginners' }, { slug: 'start/advanced' }, { slug: 'start/models' }] },
         ...manifest.groups.map(group => ({

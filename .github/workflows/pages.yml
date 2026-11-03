@@ -32,6 +32,7 @@ jobs:
           python3 scripts/check_repository.py
           python3 scripts/check_docs.py --public
           python3 -m unittest discover -s tests -v
+          node --test tests/site-behavior.test.mjs
       - name: Install dependencies
         run: npm ci --prefix site
       - name: Build and check the site

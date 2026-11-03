@@ -119,13 +119,15 @@ class PublicationBoundary(unittest.TestCase):
         self.page.update(route="faq/one", group="printing")
         self.manifest["groups"] = [{"id": "printing", "label": "Printing", "route": ""}]
         self.manifest["pages"].append({"source": "site/topics/printing.md", "route": "", "group": "topics", "topic": "printing"})
-        self.run_prepare()
-        output = (self.target / "index.md").read_text()
-        self.assertIn("1 статья", output)
-        self.assertIn("[First layer](/faq/one/)", output)
-        self.assertIn("CC1; PLA.", output)
-        self.assertNotIn("Обновлено", output)
-        self.assertNotIn("Must stay unlisted", output)
+        for base in ("", "/elegoo-cc"):
+            with self.subTest(base=base), patch.dict("os.environ", {"SITE_BASE": base}):
+                self.run_prepare()
+                output = (self.target / "index.md").read_text()
+                self.assertIn("1 статья", output)
+                self.assertIn(f"[First layer]({base}/faq/one/)", output)
+                self.assertIn("CC1; PLA.", output)
+                self.assertNotIn("Обновлено", output)
+                self.assertNotIn("Must stay unlisted", output)
 
     def test_feedback_prefills_canonical_url_and_form_fields(self):
         with patch.dict("os.environ", {"SITE_URL": "https://demshin.github.io", "SITE_BASE": "/elegoo-cc"}):

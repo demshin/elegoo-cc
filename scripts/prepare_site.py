@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 """Prepare only explicitly allowed public content; never open archive targets."""
 
+from datetime import date
+from hashlib import sha256
+from html import escape
 import json
 import os
 from pathlib import Path
 import re
 import shutil
-from urllib.parse import unquote, urlsplit
+from urllib.parse import unquote, urlencode, urlsplit
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -20,6 +23,12 @@ SITE_PAGES = {
     "site/home.mdx", "site/beginners.md", "site/advanced.md",
     "site/models.md", "site/method.md",
 }
+REVIEW_LABELS = {
+    "supported": "Сверено с источниками",
+    "partial": "Подтверждено частично",
+    "contradicted": "Найдены противоречия",
+    "insufficient": "Недостаточно подтверждений",
+}
 
 
 def article_count_label(count):
@@ -32,6 +41,34 @@ def article_count_label(count):
     else:
         noun = "статей"
     return f"{count} {noun}"
+
+
+def article_info(text):
+    title = re.search(r"^# (.+)$", text, re.M)
+    assert title, "Article needs an H1"
+    scope = re.search(r"\*\*Область:\*\*\s*(.+?)(?=\s*\*\*(?:Обновлено|Сверка):\*\*|\n|$)", text)
+    return title[1].strip(), scope[1].strip() if scope else "Применимость уточняйте в статье."
+
+
+def review_status(text, record):
+    if record is None:
+        return "Сверка этой редакции отдельно не зафиксирована. Основания приведены ниже."
+    reviewed_on = date.fromisoformat(record["reviewed_on"]).strftime("%d.%m.%Y")
+    if sha256(text.encode()).hexdigest() != record["content_sha256"]:
+        return f"Текст изменён после сверки {reviewed_on}; нужна повторная сверка."
+    return f"{REVIEW_LABELS[record['status']]} {reviewed_on}. {record['summary']}"
+
+
+def feedback_links(route, title, scope):
+    origin = os.environ.get("SITE_URL", "https://demshin.github.io").rstrip("/")
+    prefix = os.environ.get("SITE_BASE", "/elegoo-cc").strip("/")
+    canonical = origin + "/" + (prefix + "/" if prefix else "") + route + "/"
+    endpoint = "https://github.com/demshin/elegoo-cc/issues/new?"
+    common = {"page": canonical}
+    return {
+        "case": endpoint + urlencode({**common, "template": "case.yml", "title": "Случай: " + title, "conditions": scope}),
+        "correction": endpoint + urlencode({**common, "template": "correction.yml", "title": "Исправление: " + title}),
+    }
 
 
 def main():
@@ -57,6 +94,33 @@ def main():
     base = "/" + os.environ.get("SITE_BASE", "").strip("/")
     base = base.rstrip("/")
     assert re.fullmatch(r"(?:/[A-Za-z0-9_-]+)*", base), "Invalid project base"
+    sources = {}
+    for page in pages:
+        source = page["source"]
+        path = ROOT / source
+        assert source in SOURCE_DOCS | SITE_PAGES or re.fullmatch(r"(?:faq/(?:[a-z0-9-]+/)*|site/topics/)[a-z0-9-]+\.md", source), source
+        assert path.resolve() == path.absolute() and path.is_file(), source
+        assert not page["route"] or re.fullmatch(r"(?:[a-z0-9-]+/)*[a-z0-9-]+", page["route"]), page["route"]
+        sources[source] = path.read_bytes().decode("utf-8")
+    review_file = SITE / "article-reviews.json"
+    assert not review_file.is_symlink(), "Symlink in article review registry"
+    reviews = json.loads(review_file.read_text())["reviews"] if review_file.is_file() else {}
+    for source, record in reviews.items():
+        assert source in sources and source.startswith("faq/"), f"Review for unlisted article: {source}"
+        assert re.fullmatch(r"[a-f0-9]{64}", record["content_sha256"]), source
+        date.fromisoformat(record["reviewed_on"])
+        assert record["status"] in REVIEW_LABELS and isinstance(record["summary"], str) and record["summary"].strip(), source
+        assert not re.search(r"data/|/Users/|file://|plugin://|[<>\r\n]", record["summary"]), f"Invalid public review summary: {source}"
+        assert isinstance(record["evidence"], list) and record["evidence"], source
+        assert all(isinstance(url, str) and not re.search(r"data/|/Users/|file://|plugin://", url) for url in record["evidence"]), source
+    groups = {group["id"]: group for group in manifest.get("groups", [])}
+    assert len(groups) == len(manifest.get("groups", [])), "Duplicate topic group"
+    for group in groups.values():
+        assert group["route"] in routes.values(), f"Topic overview missing: {group['id']}"
+    if groups:
+        for page in pages:
+            if page["source"].startswith("faq/"):
+                assert page["group"] in groups, f"Article has no topic: {page['source']}"
 
     def public_url(route, fragment=""):
         return base + "/" + (route + "/" if route else "") + ("#" + fragment if fragment else "")
@@ -81,11 +145,9 @@ def main():
     for page in pages:
         source = page["source"]
         path = ROOT / source
-        assert source in SOURCE_DOCS | SITE_PAGES or re.fullmatch(r"faq/(?:[a-z0-9-]+/)*[a-z0-9-]+\.md", source), source
-        assert path.resolve() == path.absolute() and path.is_file(), source
         route = page["route"]
-        assert not route or re.fullmatch(r"(?:[a-z0-9-]+/)*[a-z0-9-]+", route), route
-        text = path.read_text()
+        original = sources[source]
+        text = original.replace("\r\n", "\n")
         assert not re.search(r"!\[[^\]]*\]\([^)]*data/", text), source
         text = re.sub(r"(?<!!)\[([^\]]+)\]\(([^)]+)\)", lambda m: rewrite(source, m[2], m[1]), text)
         text = text.replace("`data/.work/`", "локальном кеше")
@@ -94,6 +156,27 @@ def main():
         text = text.replace("в data/", "в закрытой локальной выгрузке")
         text = text.replace("{{BASE}}", base)
         text = text.replace("{{ARTICLE_COUNT_LABEL}}", article_count_label(article_count))
+        if "{{TOPIC_CARDS}}" in text:
+            cards = []
+            for group in groups.values():
+                title = json.dumps(group["label"], ensure_ascii=False)
+                description = json.dumps(group["description"], ensure_ascii=False)
+                href = json.dumps(public_url(group["route"]))
+                cards.append(f"  <LinkCard title={{{title}}} description={{{description}}} href={{{href}}} />")
+            text = text.replace("{{TOPIC_CARDS}}", "\n".join(cards))
+        if "topic" in page:
+            topic = page["topic"]
+            assert topic in groups, f"Unknown topic: {topic}"
+            assert route == groups[topic]["route"], f"Wrong topic overview route: {topic}"
+            items = [item for item in pages if item["source"].startswith("faq/") and item["group"] == topic]
+            rows = [f"{article_count_label(len(items))} в этом разделе.", "", "| Симптом или вопрос | Применимость |", "| --- | --- |"]
+            for item in items:
+                title, scope = article_info(sources[item["source"]])
+                scope = re.sub(r"(?<!!)\[([^\]]+)\]\(([^)]+)\)", lambda m: rewrite(item["source"], m[2], m[1]), scope)
+                title, scope = title.replace("|", "\\|"), scope.replace("|", "\\|")
+                rows.append(f"| [{title}]({public_url(item['route'])}) | {scope} |")
+            assert "{{TOPIC_ARTICLES}}" in text, source
+            text = text.replace("{{TOPIC_ARTICLES}}", "\n".join(rows))
         assert not re.search(r"(?:\.\./)*data/|/Users/|file://|plugin://", text), source
         if not text.startswith("---\n"):
             title = re.search(r"^# (.+)$", text, re.M)
@@ -105,6 +188,30 @@ def main():
             text = metadata + "---\n\n" + text
         edit_url = "https://github.com/demshin/elegoo-cc/edit/main/" + source
         text = text.replace("---\n", "---\neditUrl: " + json.dumps(edit_url) + "\n", 1)
+        if source.startswith("faq/"):
+            title, scope = article_info(original)
+            record = reviews.get(source)
+            grounds = {}
+            def add_ground(link):
+                destination = re.search(r"\]\((.*)\)$", link)[1]
+                grounds.setdefault(destination, link)
+            for match in re.finditer(r"(?<!!)\[([^\]]+)\]\(([^)]+)\)", original):
+                if re.search(r"(?:^|/)docs/evidence[^/]*\.md(?:#|$)", match[2]):
+                    add_ground(rewrite(source, match[2], match[1]))
+            if record:
+                for index, destination in enumerate(record["evidence"], 1):
+                    add_ground(rewrite("README.md", destination, f"Источник сверки {index}"))
+            status = review_status(original, record)
+            panel = "> **Сверка с источниками:** " + status + "\n>\n> **Основания:** " + (" · ".join(grounds.values()) or "См. источники в тексте статьи.")
+            metadata_end = text.index("\n---\n", 4) + len("\n---\n")
+            text = text[:metadata_end] + "\n" + panel + "\n" + text[metadata_end:]
+            links = feedback_links(route, title, scope)
+            text += ('\n\n<section class="article-feedback" aria-label="Обратная связь по статье" data-pagefind-ignore>\n'
+                     '<p><strong>Есть опыт по этой теме?</strong> Добавьте свой случай или сообщите о неточности.</p>\n'
+                     '<div class="feedback-actions">'
+                     f'<a href="{escape(links["case"], quote=True)}">Добавить свой случай</a>'
+                     f'<a href="{escape(links["correction"], quote=True)}">Сообщить об ошибке</a>'
+                     '</div>\n<p>Обсуждение откроется в GitHub Issues. Для отправки нужен аккаунт GitHub.</p>\n</section>\n')
         suffix = ".mdx" if path.suffix == ".mdx" else ".md"
         prepared.append((TARGET / ((route or "index") + suffix), text))
 

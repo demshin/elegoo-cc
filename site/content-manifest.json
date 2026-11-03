@@ -1,33 +1,49 @@
 {
-  "assets": ["favicon.svg"],
+  "assets": [
+    "favicon.svg"
+  ],
   "groups": [
     {
       "id": "topic-1",
-      "label": "Материалы и подача"
+      "label": "Материалы и подача",
+      "route": "topics/filament-and-feed",
+      "description": "Влага, TPU, катушки и CANVAS"
     },
     {
       "id": "topic-2",
-      "label": "Первый слой и удержание детали"
+      "label": "Первый слой и удержание детали",
+      "route": "topics/first-layer",
+      "description": "Адгезия, зазор и отрыв углов"
     },
     {
       "id": "topic-3",
-      "label": "Слайсер, периметры и поддержки"
+      "label": "Слайсер, периметры и поддержки",
+      "route": "topics/slicing-and-quality",
+      "description": "Поток, поддержки, мосты и швы"
     },
     {
       "id": "topic-4",
-      "label": "Экструзия и нагрев"
+      "label": "Экструзия и нагрев",
+      "route": "topics/extrusion-and-heating",
+      "description": "Засоры, ошибки и проверка узлов"
     },
     {
       "id": "topic-5",
-      "label": "Механика, калибровка и обслуживание"
+      "label": "Механика, калибровка и обслуживание",
+      "route": "topics/mechanics-and-calibration",
+      "description": "Стол, датчики и посторонний шум"
     },
     {
       "id": "topic-6",
-      "label": "Связь и интерфейс"
+      "label": "Связь и интерфейс",
+      "route": "topics/connection-and-interface",
+      "description": "IP, передача файлов и камера"
     },
     {
       "id": "topic-7",
-      "label": "Прошивки и восстановление работы"
+      "label": "Прошивки и восстановление работы",
+      "route": "topics/firmware",
+      "description": "Совместимость и восстановление"
     }
   ],
   "pages": [
@@ -410,6 +426,48 @@
       "source": "docs/sources.md",
       "route": "sources/documentation",
       "group": "sources"
+    },
+    {
+      "source": "site/topics/filament-and-feed.md",
+      "route": "topics/filament-and-feed",
+      "group": "topics",
+      "topic": "topic-1"
+    },
+    {
+      "source": "site/topics/first-layer.md",
+      "route": "topics/first-layer",
+      "group": "topics",
+      "topic": "topic-2"
+    },
+    {
+      "source": "site/topics/slicing-and-quality.md",
+      "route": "topics/slicing-and-quality",
+      "group": "topics",
+      "topic": "topic-3"
+    },
+    {
+      "source": "site/topics/extrusion-and-heating.md",
+      "route": "topics/extrusion-and-heating",
+      "group": "topics",
+      "topic": "topic-4"
+    },
+    {
+      "source": "site/topics/mechanics-and-calibration.md",
+      "route": "topics/mechanics-and-calibration",
+      "group": "topics",
+      "topic": "topic-5"
+    },
+    {
+      "source": "site/topics/connection-and-interface.md",
+      "route": "topics/connection-and-interface",
+      "group": "topics",
+      "topic": "topic-6"
+    },
+    {
+      "source": "site/topics/firmware.md",
+      "route": "topics/firmware",
+      "group": "topics",
+      "topic": "topic-7"
     }
   ],
   "aliases": {

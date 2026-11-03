@@ -1,0 +1,49 @@
+name: Свой случай по статье
+description: Подтвердить результат, уточнить условия или рассказать, что не помогло
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Статья FAQ
+      description: Ссылка заполнится при переходе со страницы статьи.
+    validations:
+      required: true
+  - type: textarea
+    id: conditions
+    attributes:
+      label: Принтер и условия
+      description: Укажите именно свою модель, прошивку, слайсер и материал. Если поле заполнено по статье, уточните его для своего случая.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Что сделали
+      description: Какие действия выполнили, что меняли одновременно и что раньше не помогало.
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: Результат
+      options:
+        - Решение помогло
+        - Помогло частично или проблема вернулась
+        - Не помогло
+        - Проверка ещё не закончена
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Как проверили результат
+      description: Опишите контрольную печать, длительность проверки, оставшиеся симптомы и ссылки на открытые материалы. Отметьте, если это продолжение уже описанного вами случая.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Перед отправкой
+      options:
+        - label: Здесь нет паролей, чужих контактов и закрытой переписки без разрешения на публикацию.
+          required: true

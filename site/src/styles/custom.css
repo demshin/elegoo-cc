@@ -21,6 +21,12 @@ html { scroll-padding-top: 5rem; }
 .sl-markdown-content :is(h2, h3) { letter-spacing: -.02em; }
 .sl-markdown-content p { text-wrap: pretty; }
 .sl-markdown-content .archive-ref { font-size: .85em; color: var(--sl-color-gray-3); }
+.article-feedback { margin-block-start: 2rem; padding: 1rem; border: 1px solid var(--sl-color-gray-5); border-radius: .75rem; background: var(--sl-color-bg-nav); }
+.feedback-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.feedback-actions a { display: inline-flex; align-items: center; min-height: 2.75rem; padding: .5rem .85rem; border: 1px solid var(--sl-color-text-accent); border-radius: .5rem; text-decoration: none; }
+.feedback-actions a:hover { background: var(--sl-color-accent-low); }
+.feedback-actions a:focus-visible { outline: 2px solid var(--sl-color-text-accent); outline-offset: 3px; }
+.article-feedback > p:last-child { font-size: .875rem; color: var(--sl-color-gray-2); }
 @media (prefers-reduced-motion: no-preference) {
   .card { transition: border-color .15s ease; }
   .card:hover { border-color: var(--sl-color-accent); }

@@ -15,7 +15,7 @@ def main():
     cli.add_argument("--public", action="store_true", help="Validate archive pointer syntax without reading the private archive")
     public = cli.parse_args().public
     root = Path.cwd().resolve()
-    documents = [*Path(".").glob("*.md"), *Path("faq").rglob("*.md"), *Path("docs").rglob("*.md"), *Path("site").glob("*.md"), *Path("site").glob("*.mdx")]
+    documents = [*Path(".").glob("*.md"), *Path("faq").rglob("*.md"), *Path("docs").rglob("*.md"), *Path("site").glob("*.md"), *Path("site/topics").glob("*.md"), *Path("site").glob("*.mdx")]
     if public:
         documents = [path for path in documents if not path.is_relative_to("docs/prompts")]
     cache = {}

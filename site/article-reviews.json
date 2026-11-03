@@ -1,0 +1,18 @@
+{
+  "reviews": {
+    "faq/printing/empty-start-skirt.md": {
+      "content_sha256": "1f33b25c1f77108cc67bd1b52e896cd0ef8bc539efd5d9910a69431ff6b3f661",
+      "reviewed_on": "2026-11-03",
+      "status": "supported",
+      "summary": "Подтверждены независимые сообщения о пользе предварительных контуров и назначение юбки и каймы. Полных профилей и длительных испытаний нет; точная прошивка второго владельца не установлена.",
+      "evidence": [
+        "docs/evidence-history.md#start-prime",
+        "docs/evidence-history.md#start-prime-followup",
+        "docs/evidence-history.md#start-prime-august",
+        "docs/evidence-history.md#start-line-august",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/others_settings_skirt",
+        "https://github.com/OrcaSlicer/OrcaSlicer/wiki/others_settings_brim"
+      ]
+    }
+  }
+}

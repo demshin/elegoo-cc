@@ -38,7 +38,10 @@ gtag('config', '${googleAnalyticsId}');`,
         ...manifest.groups.map(group => ({
           label: group.label,
           collapsed: true,
-          items: manifest.pages.filter(page => page.group === group.id).map(page => ({ slug: page.route })),
+          items: [
+            { slug: group.route, label: 'Все статьи темы' },
+            ...manifest.pages.filter(page => page.group === group.id).map(page => ({ slug: page.route })),
+          ],
         })),
         { label: 'Основания и метод', collapsed: true, items: manifest.pages.filter(page => page.group === 'sources').map(page => ({ slug: page.route })) },
       ],

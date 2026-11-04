@@ -4,7 +4,7 @@ import { searchQuery } from '../site/src/lib/search-policy.mjs';
 import { trackUsage } from '../site/src/lib/analytics.mjs';
 
 test('symptom normalization preserves model and material qualifiers', () => {
-  assert.deepEqual(searchQuery('  PETG не липнет CC2  '), { term: 'petg прилипание cc2', intent: 'adhesion' });
+  assert.deepEqual(searchQuery('  PETG не липнет CC2  '), { term: 'petg прилипает cc2', intent: 'adhesion' });
   assert.deepEqual(searchQuery('ошибка103'), { term: '103', intent: 'error_code' });
   assert.equal(searchQuery('КАНВАС').term, 'canvas');
   assert.equal(searchQuery('СС1 СС2').term, 'cc1 cc2');

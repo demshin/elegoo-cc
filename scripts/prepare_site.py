@@ -54,7 +54,12 @@ def review_status(text, record):
     if record is None:
         return "Сверка этой редакции отдельно не зафиксирована. Основания приведены ниже."
     reviewed_on = date.fromisoformat(record["reviewed_on"]).strftime("%d.%m.%Y")
-    if sha256(text.encode()).hexdigest() != record["content_sha256"]:
+    current_hash = sha256(text.encode()).hexdigest()
+    if current_hash != record["content_sha256"]:
+        editorial = record.get("editorial_review")
+        if editorial and editorial["from_content_sha256"] == record["content_sha256"] and editorial["content_sha256"] == current_hash:
+            edited_on = date.fromisoformat(editorial["reviewed_on"]).strftime("%d.%m.%Y")
+            return f"{REVIEW_LABELS[record['status']]} {reviewed_on}. Сохранность смысла после редактуры проверена {edited_on}. {record['summary']}"
         return f"Текст изменён после сверки {reviewed_on}; нужна повторная сверка."
     return f"{REVIEW_LABELS[record['status']]} {reviewed_on}. {record['summary']}"
 
@@ -113,6 +118,12 @@ def main():
         assert not re.search(r"data/|/Users/|file://|plugin://|[<>\r\n]", record["summary"]), f"Invalid public review summary: {source}"
         assert isinstance(record["evidence"], list) and record["evidence"], source
         assert all(isinstance(url, str) and not re.search(r"data/|/Users/|file://|plugin://", url) for url in record["evidence"]), source
+        editorial = record.get("editorial_review")
+        if editorial is not None:
+            assert isinstance(editorial, dict), source
+            assert editorial["from_content_sha256"] == record["content_sha256"], f"Editorial review has a different baseline: {source}"
+            assert re.fullmatch(r"[a-f0-9]{64}", editorial["content_sha256"]), source
+            assert date.fromisoformat(editorial["reviewed_on"]) >= date.fromisoformat(record["reviewed_on"]), source
     groups = {group["id"]: group for group in manifest.get("groups", [])}
     assert len(groups) == len(manifest.get("groups", [])), "Duplicate topic group"
     for group in groups.values():
@@ -203,9 +214,8 @@ def main():
                     add_ground(rewrite("README.md", destination, f"Источник сверки {index}"))
             status = review_status(original, record)
             panel = "> **Сверка с источниками:** " + status + "\n>\n> **Основания:** " + (" · ".join(grounds.values()) or "См. источники в тексте статьи.")
-            panel = '<aside data-pagefind-ignore>\n\n' + panel + '\n\n</aside>'
-            metadata_end = text.index("\n---\n", 4) + len("\n---\n")
-            text = text[:metadata_end] + "\n" + panel + "\n" + text[metadata_end:]
+            panel = '<details class="article-review" data-pagefind-ignore>\n<summary>Источники и проверка</summary>\n\n' + panel + '\n\n</details>'
+            text += "\n\n" + panel + "\n"
             links = feedback_links(route, title, scope)
             text += ('\n\n<section class="article-feedback" aria-label="Обратная связь по статье" data-pagefind-ignore>\n'
                      '<p><strong>Есть опыт по этой теме?</strong> Добавьте свой случай или сообщите о неточности.</p>\n'

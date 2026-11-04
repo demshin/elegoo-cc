@@ -146,8 +146,44 @@ class PublicationBoundary(unittest.TestCase):
             self.run_prepare()
         self.assertTrue((self.target / "keep.md").is_file())
 
+    def test_review_is_collapsed_after_the_article_and_before_feedback(self):
+        self.run_prepare()
+        text = (self.target / "index.md").read_text()
+        self.assertLess(text.index('Public explanation.'), text.index('<details class="article-review"'))
+        self.assertLess(text.index('<summary>Источники и проверка</summary>'), text.index('<section class="article-feedback"'))
+        self.assertNotIn('<details class="article-review" open', text)
+
+    def test_editorial_review_cannot_point_to_a_different_baseline(self):
+        record = {
+            "content_sha256": "a" * 64, "reviewed_on": "2026-11-03", "status": "supported",
+            "summary": "Checked.", "evidence": ["https://example.com/manual"],
+            "editorial_review": {"from_content_sha256": "b" * 64, "content_sha256": "c" * 64, "reviewed_on": "2026-11-04"},
+        }
+        (self.site / "article-reviews.json").write_text(json.dumps({"reviews": {"faq/one.md": record}}))
+        with self.assertRaisesRegex(AssertionError, "different baseline"):
+            self.run_prepare()
+        self.assertTrue((self.target / "keep.md").is_file())
+
 
 class ReviewFreshness(unittest.TestCase):
+    def test_editorial_review_preserves_the_source_review_date(self):
+        original = "# Article\n\nA supported statement.\n"
+        edited = "# Article\n\nThe same statement, edited.\n"
+        record = {
+            "content_sha256": sha256(original.encode()).hexdigest(),
+            "reviewed_on": "2026-11-03", "status": "supported", "summary": "Checked outcomes.",
+            "editorial_review": {
+                "from_content_sha256": sha256(original.encode()).hexdigest(),
+                "content_sha256": sha256(edited.encode()).hexdigest(),
+                "reviewed_on": "2026-11-04",
+            },
+        }
+        self.assertIn("Сверено с источниками 03.11.2026", PREPARE.review_status(edited, record))
+        self.assertIn("редактуры проверена 04.11.2026", PREPARE.review_status(edited, record))
+        self.assertIn("нужна повторная сверка", PREPARE.review_status(edited + "New claim.\n", record))
+        record["editorial_review"]["from_content_sha256"] = "a" * 64
+        self.assertIn("нужна повторная сверка", PREPARE.review_status(edited, record))
+
     def test_review_is_stale_when_article_text_changes(self):
         text = "# Article\n\nA supported statement.\n"
         record = {

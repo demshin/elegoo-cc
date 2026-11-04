@@ -41,6 +41,7 @@ try {
       assert.ok(!hit.url.includes('/sources/'), 'Evidence registry appeared in search');
     }
     if (expected) assert.ok(hits.some(hit => hit.url.includes(expected)), `${expected} missing from first three results for ${query}`);
+    if (normalized.intent === 'adhesion') assert.ok(hits[0].url.includes('first-layer-adhesion'), `First-layer guide must lead the results for ${query}`);
     console.log(`${query}: ${response.results.length} results; first: ${hits[0].meta.title}`);
   }
   assert.equal((await pagefind.search('qzxqzxqzxqzxqzx')).results.length, 0);

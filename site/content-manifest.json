@@ -93,6 +93,11 @@
       "group": "topic-2"
     },
     {
+      "source": "faq/centauri/cc1-raised-bed-rim.md",
+      "route": "faq/centauri/cc1-raised-bed-rim",
+      "group": "topic-2"
+    },
+    {
       "source": "faq/printing/warping-and-brim.md",
       "route": "faq/printing/warping-and-brim",
       "group": "topic-2"
@@ -153,6 +158,11 @@
       "group": "topic-3"
     },
     {
+      "source": "faq/slicing/small-nozzle-profile.md",
+      "route": "faq/slicing/small-nozzle-profile",
+      "group": "topic-3"
+    },
+    {
       "source": "faq/slicing/small-part-cooling-time.md",
       "route": "faq/slicing/small-part-cooling-time",
       "group": "topic-3"
@@ -190,6 +200,16 @@
     {
       "source": "faq/slicing/bridges.md",
       "route": "faq/slicing/bridges",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/horizontal-hole-shape.md",
+      "route": "faq/slicing/horizontal-hole-shape",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/printing/leaking-vase.md",
+      "route": "faq/printing/leaking-vase",
       "group": "topic-3"
     },
     {
@@ -283,6 +303,16 @@
       "group": "topic-5"
     },
     {
+      "source": "faq/centauri/cc1-fan-mufflers.md",
+      "route": "faq/centauri/cc1-fan-mufflers",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/cc1-waste-collection.md",
+      "route": "faq/centauri/cc1-waste-collection",
+      "group": "topic-5"
+    },
+    {
       "source": "faq/centauri/toolhead-cover-rattle.md",
       "route": "faq/centauri/toolhead-cover-rattle",
       "group": "topic-5"
@@ -290,6 +320,11 @@
     {
       "source": "faq/centauri/axis-noise.md",
       "route": "faq/centauri/axis-noise",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/stripped-belt-tensioner-screws.md",
+      "route": "faq/centauri/stripped-belt-tensioner-screws",
       "group": "topic-5"
     },
     {
@@ -335,6 +370,11 @@
     {
       "source": "faq/centauri/cc2-camera-not-detected.md",
       "route": "faq/centauri/cc2-camera-not-detected",
+      "group": "topic-6"
+    },
+    {
+      "source": "faq/centauri/timelapse-recording-and-export.md",
+      "route": "faq/centauri/timelapse-recording-and-export",
       "group": "topic-6"
     },
     {
@@ -468,6 +508,156 @@
       "route": "topics/firmware",
       "group": "topics",
       "topic": "topic-7"
+    },
+    {
+      "source": "faq/slicing/lay-model-on-face.md",
+      "route": "faq/slicing/lay-model-on-face",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/orca-startup-windows.md",
+      "route": "faq/slicing/orca-startup-windows",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/printing/print-removal.md",
+      "route": "faq/printing/print-removal",
+      "group": "topic-2"
+    },
+    {
+      "source": "faq/printing/hotend-leak.md",
+      "route": "faq/printing/hotend-leak",
+      "group": "topic-4"
+    },
+    {
+      "source": "faq/centauri/canvas-filament-sensor-sticking.md",
+      "route": "faq/centauri/canvas-filament-sensor-sticking",
+      "group": "topic-1"
+    },
+    {
+      "source": "faq/centauri/black-camera-window-on-pc.md",
+      "route": "faq/centauri/black-camera-window-on-pc",
+      "group": "topic-6"
+    },
+    {
+      "source": "faq/centauri/cc2-bed-mesh-mqtt.md",
+      "route": "faq/centauri/cc2-bed-mesh-mqtt",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/touchscreen-ribbon-connection.md",
+      "route": "faq/centauri/touchscreen-ribbon-connection",
+      "group": "topic-6"
+    },
+    {
+      "source": "faq/centauri/cc1-bed-tilt-check.md",
+      "route": "faq/centauri/cc1-bed-tilt-check",
+      "group": "topic-2"
+    },
+    {
+      "source": "faq/slicing/volumetric-speed-limit.md",
+      "route": "faq/slicing/volumetric-speed-limit",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/negative-volume-cutout.md",
+      "route": "faq/slicing/negative-volume-cutout",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/centauri/chamber-lighting.md",
+      "route": "faq/centauri/chamber-lighting",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/centauri/cc1-update-notification.md",
+      "route": "faq/centauri/cc1-update-notification",
+      "group": "topic-7"
+    },
+    {
+      "source": "faq/filament/dryer-ptfe-retention.md",
+      "route": "faq/filament/dryer-ptfe-retention",
+      "group": "topic-1"
+    },
+    {
+      "source": "faq/centauri/cc1-internal-spool.md",
+      "route": "faq/centauri/cc1-internal-spool",
+      "group": "topic-1"
+    },
+    {
+      "source": "faq/filament/refill-and-respooling.md",
+      "route": "faq/filament/refill-and-respooling",
+      "group": "topic-1"
+    },
+    {
+      "source": "faq/centauri/cc1-tpu-bed-cooling-wait.md",
+      "route": "faq/centauri/cc1-tpu-bed-cooling-wait",
+      "group": "topic-4"
+    },
+    {
+      "source": "faq/slicing/scan-tracking-loss.md",
+      "route": "faq/slicing/scan-tracking-loss",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/scan-processing-performance.md",
+      "route": "faq/slicing/scan-processing-performance",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/centauri/cc1-door-hinge-gap.md",
+      "route": "faq/centauri/cc1-door-hinge-gap",
+      "group": "topic-5"
+    },
+    {
+      "source": "faq/slicing/supports-fall-over.md",
+      "route": "faq/slicing/supports-fall-over",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/two-color-bottom-layer.md",
+      "route": "faq/slicing/two-color-bottom-layer",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/stl-drag-drop-import.md",
+      "route": "faq/slicing/stl-drag-drop-import",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/slicing/text-on-model.md",
+      "route": "faq/slicing/text-on-model",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/centauri/cc1-ptfe-release.md",
+      "route": "faq/centauri/cc1-ptfe-release",
+      "group": "topic-1"
+    },
+    {
+      "source": "faq/slicing/scale-multiple-parts.md",
+      "route": "faq/slicing/scale-multiple-parts",
+      "group": "topic-3"
+    },
+    {
+      "source": "faq/filament/bottle-pet-printing.md",
+      "route": "faq/filament/bottle-pet-printing",
+      "group": "topic-1"
+    },
+    {
+      "source": "faq/filament/nylon-bed-adhesion.md",
+      "route": "faq/filament/nylon-bed-adhesion",
+      "group": "topic-1"
+    },
+    {
+      "source": "faq/centauri/home-assistant-telegram-notifications.md",
+      "route": "faq/centauri/home-assistant-telegram-notifications",
+      "group": "topic-6"
+    },
+    {
+      "source": "faq/slicing/orca-update-and-profiles.md",
+      "route": "faq/slicing/orca-update-and-profiles",
+      "group": "topic-3"
     }
   ],
   "aliases": {

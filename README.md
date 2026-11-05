@@ -22,19 +22,29 @@
 
 - [ASA: расслоение и достаточный обдув](faq/filament/asa-layer-separation.md).
 - [CC1 не захватывает нить после смены катушки](faq/centauri/cc1-filament-loading.md).
+- [CC1: снятие PTFE-трубки со штатного одиночного входа](faq/centauri/cc1-ptfe-release.md).
 - [CC2: CANVAS не переключается на запасную катушку](faq/centauri/cc2-filament-backup.md).
+- [CANVAS: заедает датчик наличия филамента](faq/centauri/canvas-filament-sensor-sticking.md).
 - [Сушка и хранение филамента](faq/filament/drying-and-storage.md).
+- [Бутылочный PET: первый слой и подача](faq/filament/bottle-pet-printing.md).
+- [Нейлон отрывается от стола](faq/filament/nylon-bed-adhesion.md).
 - [TPU перестаёт подаваться: тракт и CANVAS](faq/filament/tpu-feed-path.md).
 - [Катушка и перегибы трубок мешают подаче](faq/filament/feed-resistance.md).
+- [Рефилл не подходит к катушке или путается](faq/filament/refill-and-respooling.md).
+- [CC1: катушка внутри корпуса и её замена](faq/centauri/cc1-internal-spool.md).
+- [PTFE-трубку затягивает внутрь сушилки](faq/filament/dryer-ptfe-retention.md).
 
 ### Первый слой и удержание детали
 
 - [CC1: выбор стороны и типа пластины](faq/centauri/cc1-build-plate-selection.md).
 - [Загрязнение печатной поверхности](faq/first-layer-adhesion.md).
 - [Мусор под пластиной](faq/debris-under-build-plate.md).
+- [CC1: пластина упирается в передний бортик](faq/centauri/cc1-raised-bed-rim.md).
 - [Отрыв углов: кайма и условия печати](faq/printing/warping-and-brim.md).
+- [Деталь не снимается с пластины: охлаждение и съём](faq/printing/print-removal.md).
 - [Пустое начало контура: юбка перед моделью](faq/printing/empty-start-skirt.md).
 - [Щели и наплывы первого слоя: Z-offset](faq/centauri/first-layer-z-offset.md).
+- [CC1: неровный первый слой по площади — проверка наклона](faq/centauri/cc1-bed-tilt-check.md).
 - [Основание шире детали: слоновья нога](faq/printing/elephant-foot.md).
 - [CC1: неровный монослой и толщина первого слоя](faq/centauri/cc1-first-layer-height.md).
 
@@ -42,11 +52,18 @@
 
 - [Температурная башня и рабочая деталь](faq/slicing/temperature-tower.md).
 - [Калибровка и сохранение коэффициента потока](faq/slicing/flow-ratio.md).
+- [Увеличили объёмный расход, а печать не ускорилась](faq/slicing/volumetric-speed-limit.md).
 - [Pressure Advance: тест, расчёт и сохранение](faq/slicing/pressure-advance.md).
 - [Поддержки трудно отделяются](faq/slicing/support-removal.md).
+- [Поддержки отрываются или разваливаются во время печати](faq/slicing/supports-fall-over.md).
 - [Провисают периметры на скосах и резьбе](faq/slicing/overhang-walls.md).
 - [Вазный режим: отверстия на наклонной стенке](faq/slicing/vase-wall-gaps.md).
+- [Ваза или кашпо протекает: стенка, дно и экструзия](faq/printing/leaking-vase.md).
 - [Возврат к базовому профилю](faq/slicing/profile-baseline.md).
+- [Сопло 0,2 мм: профиль принтера и калибровки](faq/slicing/small-nozzle-profile.md).
+- [STL не добавляется перетаскиванием в ELEGOO Slicer](faq/slicing/stl-drag-drop-import.md).
+- [OrcaSlicer не запускается в Windows: Bad Image и DLL](faq/slicing/orca-startup-windows.md).
+- [OrcaSlicer: обновление программы и сохранение профилей](faq/slicing/orca-update-and-profiles.md).
 - [Маленькая деталь печатается долго: время слоя и охлаждение](faq/slicing/small-part-cooling-time.md).
 - [Вертикальная полоска: размещение шва](faq/slicing/seam-placement.md).
 - [Клиновидный шов Scarf на круглой стенке](faq/slicing/scarf-seam.md).
@@ -55,12 +72,22 @@
 - [Разглаживание поверхности и поддержки](faq/slicing/ironing.md).
 - [Сопло чиркает при перемещении: Z-hop и откаты](faq/slicing/travel-scratches-z-hop.md).
 - [Провисающие мосты: отдельный тест](faq/slicing/bridges.md).
+- [Отверстия получаются овальными: провисает верхняя часть](faq/slicing/horizontal-hole-shape.md).
 - [Часть модели исчезает после нарезки: исправление сетки](faq/slicing/model-mesh-repair.md).
+- [3D-скан двоится: сканер теряет деталь](faq/slicing/scan-tracking-loss.md).
+- [Компьютер тормозит при обработке 3D-сканов](faq/slicing/scan-processing-performance.md).
+- [Выпуклая или утопленная надпись на модели](faq/slicing/text-on-model.md).
+- [Изменение размера модели из нескольких частей](faq/slicing/scale-multiple-parts.md).
+- [Отверстие или вырез в готовом STL прямо в OrcaSlicer](faq/slicing/negative-volume-cutout.md).
+- [Как положить модель ровно на стол в OrcaSlicer](faq/slicing/lay-model-on-face.md).
 - [Неровные скругления в предпросмотре: дуги](faq/slicing/arc-preview.md).
 - [CC1 без CANVAS: ручная смена цвета](faq/slicing/manual-color-change.md).
+- [Цветные буквы заподлицо без CANVAS](faq/slicing/two-color-bottom-layer.md).
 
 ### Экструзия и нагрев
 
+- [CC1 долго пишет «Преднагрев» перед печатью TPU](faq/centauri/cc1-tpu-bed-cooling-wait.md).
+- [Пластик под силиконовым носком после замены сопла](faq/printing/hotend-leak.md).
 - [CC1: повреждено горло хотэнда — проверка и замена узла](faq/centauri/cc1-hotend-damage.md).
 - [Когда помогает очистка сопла](faq/printing/nozzle-clog.md).
 - [CC2: ошибка экструзии 1243](faq/centauri/cc2-extrusion-1243.md).
@@ -72,7 +99,9 @@
 
 ### Механика, калибровка и обслуживание
 
+- [Слизались винты натяжителя ремня](faq/centauri/stripped-belt-tensioner-screws.md).
 - [CC1: просмотр сохранённой карты высот](faq/centauri/cc1-bed-mesh-viewer.md).
+- [CC2: просмотр карты высот через MQTT](faq/centauri/cc2-bed-mesh-mqtt.md).
 
 - [Cosmos: ошибки Probe triggered и Load Cell](faq/centauri/cosmos-bed-probe.md).
 - [CC1: ошибка 502 при выравнивании](faq/centauri/bed-leveling-502.md).
@@ -80,18 +109,26 @@
 - [CC1: шум в простое после смены филамента](faq/centauri/cc1-idle-noise.md).
 - [CC1: вытяжка снова включается после отключения](faq/centauri/cc1-exhaust-fan-control.md).
 - [CC1: гудит вентилятор основной платы](faq/centauri/mainboard-fan-noise.md).
+- [CC1: помогают ли печатные глушители вентиляторов](faq/centauri/cc1-fan-mufflers.md).
 - [Дребезжит крышка головы](faq/centauri/toolhead-cover-rattle.md).
 - [Хруст движения: направляющие и ремни](faq/centauri/axis-noise.md).
-- [CC1: передача вибрации на стол и мягкие ножки](faq/centauri/cc1-antivibration-feet.md).
+- [Вибрация на мебели: мягкие ножки и жёсткая опора](faq/centauri/cc1-antivibration-feet.md).
 - [CC1: у надстройки крышки не двигаются шторки](faq/centauri/cc1-vented-riser.md).
+- [CC1: чем закрыть щель у петель двери](faq/centauri/cc1-door-hinge-gap.md).
 - [CC1: подсветка сопла](faq/centauri/cc1-nozzle-light.md).
+- [В камере темно, а дополнительный свет слепит камеру](faq/centauri/chamber-lighting.md).
+- [CC1: неудобно снимать сборник отходов](faq/centauri/cc1-waste-collection.md).
 - [CC2: не снимаются трубки из 4-в-1 хаба](faq/centauri/cc2-ptfe-release.md).
 - [CC1: ограничения полного поля 256×256 мм](faq/centauri/cc1-full-build-area.md).
 
 ### Связь и интерфейс
 
+- [Экран не включается или не реагирует: питание и шлейф](faq/centauri/touchscreen-ribbon-connection.md).
+- [Чёрное окно камеры на ПК: приложение и видеодрайвер](faq/centauri/black-camera-window-on-pc.md).
+- [Не записывается таймлапс или не находится видео](faq/centauri/timelapse-recording-and-export.md).
 - [Слайсер потерял принтер после смены IP](faq/centauri/printer-ip-address.md).
 - [CC1: доступ из другой сети через домашний VPN](faq/centauri/cc1-remote-access.md).
+- [Уведомления о печати в Telegram через Home Assistant](faq/centauri/home-assistant-telegram-notifications.md).
 - [CC1: пропали камера, статистика и управление](faq/web-interface-recovery.md).
 - [CC2 Carbon: камера не найдена при работающем управлении](faq/centauri/cc2-camera-not-detected.md).
 - [CC2: локальное подключение к компьютеру](faq/centauri/cc2-lan-connection.md).
@@ -99,6 +136,7 @@
 
 ### Прошивки и восстановление работы
 
+- [CC1: надоедает предложение обновить прошивку](faq/centauri/cc1-update-notification.md).
 - [Cosmos: очистительная линия под каймой или поддержками](faq/centauri/cosmos-purge-collision.md).
 
 - [CC2: «Принтер занят», CANVAS горит красным](faq/centauri/cc2-printer-busy.md).

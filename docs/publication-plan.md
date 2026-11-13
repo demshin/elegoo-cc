@@ -17,9 +17,9 @@
 
 ## Адрес
 
-Адрес сайта — https://demshin.github.io/elegoo-cc/, репозиторий — demshin/elegoo-cc. Astro получает SITE_URL=https://demshin.github.io и SITE_BASE=/elegoo-cc. В настройках Pages выбирается GitHub Actions; отдельный Custom domain не задаётся.
+Адрес сайта: https://demshin.github.io/elegoo-cc/. Репозиторий: demshin/elegoo-cc. Astro получает SITE_URL=https://demshin.github.io и SITE_BASE=/elegoo-cc. В настройках Pages выбирается GitHub Actions; отдельный Custom domain не задаётся.
 
-Основной сайт demsh.in опубликован из другого project repository — demshin/demsh.in. Его домен не наследуется новым проектом автоматически: такое наследование GitHub описывает для основного сайта аккаунта. Перенос главной в demshin.github.io владелец отклонил. Поэтому FAQ публикуется независимо на стандартном адресе проекта. [GitHub: домены нескольких репозиториев](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages#using-a-custom-domain-across-multiple-repositories), [Astro: GitHub Pages](https://docs.astro.build/en/guides/deploy/github/).
+Основной сайт demsh.in опубликован из другого project repository, demshin/demsh.in. Его домен не наследуется новым проектом автоматически: такое наследование GitHub описывает для основного сайта аккаунта. Перенос главной в demshin.github.io владелец отклонил. Поэтому FAQ публикуется независимо на стандартном адресе проекта. [GitHub: домены нескольких репозиториев](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages#using-a-custom-domain-across-multiple-repositories), [Astro: GitHub Pages](https://docs.astro.build/en/guides/deploy/github/).
 
 Если позже понадобится elegoo-cc.demsh.in, его можно подключить отдельным изменением после проверки действующих DNS-записей. Доступ к API Beget должен оставаться локальным и не передаваться в GitHub Actions.
 
